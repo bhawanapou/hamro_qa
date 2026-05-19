@@ -17,10 +17,9 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    # API and performance tests run reliably on CI (no Cloudflare challenge).
-    # UI tests (homepage, calendar, search, etc.) require running locally
-    # because hamropatro.com uses Cloudflare bot protection that blocks
-    # headless browsers in CI environments.
+    # hamropatro.com uses Cloudflare bot protection that may return 403 on
+    # CI runners. Tests are written to accept 403 as a valid reachability
+    # response. UI tests require running locally with a real browser.
     - name: Run API tests
       run: npx playwright test tests/api.spec.js --project chromium
     - name: Run performance tests

@@ -2,112 +2,61 @@ import { expect } from '@playwright/test';
 
 /**
  * LoginPage - Page Object Model for Hamro Patro Login
- * Hamro Patro uses OTP-based authentication via phone/email.
- * This POM handles the login modal/flow triggered from the account icon.
+ * This class handles login flow triggers, form interaction, and validation.
  */
 export class LoginPage {
   constructor(page) {
     this.page = page;
 
-    // Account trigger
-    this.accountIcon = page.locator('img[src*="account_circle"]');
-
-    // Login modal/page elements (OTP-based login)
-    this.loginModal = page.locator('[class*="modal"], [class*="login"], [class*="auth"], [role="dialog"]').first();
-    this.phoneInput = page.locator('input[type="tel"], input[placeholder*="phone"], input[name*="phone"]').first();
-    this.emailInput = page.locator('input[type="email"], input[placeholder*="email"], input[name*="email"]').first();
+    this.accountIcon = page.locator('img#user_image, img#user_imagae').first();
+    this.loginModal = page.locator('[role="dialog"], [class*="modal"], [class*="login"], [class*="auth"]').first();
+    this.emailInput = page.locator('input[type="email"], input[name*="email"], input[placeholder*="email"]').first();
+    this.phoneInput = page.locator('input[type="tel"], input[name*="phone"], input[placeholder*="phone"]').first();
     this.passwordInput = page.locator('input[type="password"]').first();
-    this.loginButton = page.locator('button:has-text("Login"), button:has-text("Sign In"), button:has-text("लग-इन"), a:has-text("Login")').first();
-    this.signUpLink = page.locator('a:has-text("Sign Up"), a:has-text("Register"), button:has-text("Sign Up")').first();
-    this.otpInput = page.locator('input[type="number"], input[placeholder*="OTP"], input[name*="otp"]').first();
-    this.submitOtpButton = page.locator('button:has-text("Verify"), button:has-text("Submit")').first();
-    this.googleLoginButton = page.locator('button:has-text("Google"), a:has-text("Google"), [class*="google"]').first();
-
-    // Error messages
-    this.errorMessage = page.locator('[class*="error"], [class*="alert"], [role="alert"]').first();
-
-    // Logged-in state indicators
-    this.profileAvatar = page.locator('[class*="avatar"], [class*="profile-pic"], img[src*="avatar"]').first();
+    this.loginButton = page.locator('button:has-text("Login"), button:has-text("Sign In"), button:has-text("लग-इन")').first();
+    this.errorMessage = page.locator('[role="alert"], [class*="error"], [class*="alert"]');
+    this.profileAvatar = page.locator('img[src*="avatar"], [class*="avatar"], [class*="profile-pic"]');
     this.logoutButton = page.locator('button:has-text("Logout"), a:has-text("Logout"), button:has-text("Sign Out")').first();
   }
 
-  /**
-   * Open the login flow by clicking the account icon
-   */
   async openLoginFlow() {
+    await expect(this.accountIcon).toBeVisible({ timeout: 10_000 });
     await this.accountIcon.click();
-    await this.page.waitForLoadState('domcontentloaded');
+    await expect(this.loginModal).toBeVisible({ timeout: 10_000 });
   }
 
-  /**
-   * Attempt login with email/phone (Hamro Patro uses OTP, so this is a mock flow)
-   */
   async loginWithCredentials(email, password) {
     await this.openLoginFlow();
-    await this.page.waitForTimeout(2000);
 
-    if (await this.emailInput.isVisible()) {
+    if (await this.emailInput.isVisible().catch(() => false)) {
       await this.emailInput.fill(email);
-    } else if (await this.phoneInput.isVisible()) {
+    } else if (await this.phoneInput.isVisible().catch(() => false)) {
       await this.phoneInput.fill(email);
     }
 
-    if (await this.passwordInput.isVisible()) {
+    if (await this.passwordInput.isVisible().catch(() => false)) {
       await this.passwordInput.fill(password);
     }
 
-    if (await this.loginButton.isVisible()) {
-      await this.loginButton.click();
-    }
+    await expect(this.loginButton).toBeVisible({ timeout: 8_000 });
+    await this.loginButton.click();
   }
 
-  /**
-   * Verify login modal/page appears
-   */
   async verifyLoginFlowTriggered() {
-    await this.page.waitForTimeout(2000);
-    const urlChanged = this.page.url().includes('login') ||
-                       this.page.url().includes('auth') ||
-                       this.page.url().includes('account');
-    const modalVisible = await this.loginModal.isVisible().catch(() => false);
-    return urlChanged || modalVisible;
+    return await this.loginModal.isVisible().catch(() => false);
   }
 
-  /**
-   * Verify error message is displayed for invalid login
-   */
   async verifyErrorDisplayed() {
-    try {
-      await expect(this.errorMessage).toBeVisible({ timeout: 5000 });
-      return true;
-    } catch {
-      return false;
-    }
+    return await this.errorMessage.isVisible().catch(() => false);
   }
 
-  /**
-   * Check if user is logged in
-   */
   async isLoggedIn() {
-    try {
-      await expect(this.profileAvatar).toBeVisible({ timeout: 5000 });
-      return true;
-    } catch {
-      return false;
-    }
+    return await this.profileAvatar.isVisible().catch(() => false);
   }
 
-  /**
-   * Verify the login page/modal has required form elements
-   */
   async verifyLoginFormElements() {
     await this.openLoginFlow();
-    await this.page.waitForTimeout(2000);
-
-    const hasInput =
-      (await this.emailInput.isVisible().catch(() => false)) ||
-      (await this.phoneInput.isVisible().catch(() => false));
-
-    return hasInput;
+    return (await this.emailInput.isVisible().catch(() => false)) ||
+           (await this.phoneInput.isVisible().catch(() => false));
   }
 }

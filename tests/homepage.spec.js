@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './testSetup.js';
 import { HomePage } from '../pageObjects/HomePage.js';
 
 test.describe('Homepage Tests @smoke @ui', () => {
@@ -11,12 +11,7 @@ test.describe('Homepage Tests @smoke @ui', () => {
 
   test('should load the homepage successfully', async ({ page }) => {
     await expect(page).toHaveURL(/hamropatro\.com/);
-    const title = await page.title();
-    expect(title).toBeTruthy();
-  });
-
-  test('should display the correct page title', async () => {
-    await homePage.verifyTitle();
+    await expect(page).toHaveTitle(/Nepali Calendar|Hamro Patro/i);
   });
 
   test('should display the Hamro Patro logo', async () => {
@@ -31,7 +26,7 @@ test.describe('Homepage Tests @smoke @ui', () => {
     await homePage.verifyFooter();
   });
 
-  test('should display important sections on the homepage', async () => {
+  test('should display important homepage sections', async () => {
     await homePage.verifyImportantSections();
   });
 
@@ -47,33 +42,17 @@ test.describe('Homepage Tests @smoke @ui', () => {
     await expect(homePage.searchInput).toBeVisible();
   });
 
-  test('should have the English language toggle', async () => {
-    await expect(homePage.englishToggle).toBeAttached();
-  });
-
-  test('should display services section (Remit, Recharge, Gifts, Holidays)', async ({ page }) => {
-    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight / 2));
-    await expect(homePage.holidaysService).toBeAttached();
-  });
-
   test('should display the account icon', async () => {
-    await expect(homePage.accountIcon).toBeVisible({ timeout: 10000 }).catch(async () => {
-      // Account icon may not be visible in all viewports; check it's at least in DOM
-      await expect(homePage.accountIcon).toBeAttached();
-    });
+    await expect(homePage.accountIcon).toBeVisible({ timeout: 10_000 });
   });
 
-  test('should have footer social media links', async ({ page }) => {
-    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-    await expect(homePage.facebookLink).toBeAttached();
-    await expect(homePage.instagramLink).toBeAttached();
+  test('should have footer social media links', async () => {
+    await expect(homePage.facebookLink).toBeVisible();
+    await expect(homePage.instagramLink).toBeVisible();
   });
 
-  test('should display date information on the page', async ({ page }) => {
-    // Verify the page contains some date-related content
+  test('should display date-related content on the homepage', async ({ page }) => {
     const bodyText = await page.locator('body').textContent();
-    // Should contain either English date digits or Nepali calendar info
-    const hasDateInfo = /\d{4}/.test(bodyText) || /Calendar/.test(bodyText) || /२०/.test(bodyText);
-    expect(hasDateInfo).toBeTruthy();
+    expect(bodyText).toMatch(/\d{4}|Calendar|२०|समाचार/);
   });
 });

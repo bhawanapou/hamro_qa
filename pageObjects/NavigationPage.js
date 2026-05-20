@@ -65,6 +65,7 @@ export class NavigationPage {
     const link = this.navLinks[linkName];
     if (!link) throw new Error(`Navigation link '${linkName}' not found`);
 
+    await expect(link.locator.first()).toBeVisible({ timeout: 8_000 });
     await link.locator.first().click();
     await this.page.waitForLoadState('domcontentloaded');
 

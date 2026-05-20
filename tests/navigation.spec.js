@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './testSetup.js';
 import { NavigationPage } from '../pageObjects/NavigationPage.js';
 
 test.describe('Navigation Tests @smoke @ui', () => {

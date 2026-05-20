@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './testSetup.js';
 import testData from '../fixtures/testData.json' with { type: 'json' };
 
 test.describe('Responsive Design Tests @regression @ui', () => {
@@ -85,19 +85,19 @@ test.describe('Responsive Design Tests @regression @ui', () => {
 
     // Resize to mobile
     await page.setViewportSize(testData.viewports.mobile);
-    await page.waitForTimeout(500);
+    await expect(page.locator('body')).toBeVisible();
     let title = await page.title();
     expect(title).toBeTruthy();
 
     // Resize to tablet
     await page.setViewportSize(testData.viewports.tablet);
-    await page.waitForTimeout(500);
+    await expect(page.locator('body')).toBeVisible();
     title = await page.title();
     expect(title).toBeTruthy();
 
     // Resize back to desktop
     await page.setViewportSize(testData.viewports.desktop);
-    await page.waitForTimeout(500);
+    await expect(page.locator('body')).toBeVisible();
     title = await page.title();
     expect(title).toBeTruthy();
 

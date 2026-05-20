@@ -16,6 +16,8 @@
     "test:regression": "npx playwright test --grep @regression",
     "test:api": "npx playwright test --grep @api",
     "test:ui": "npx playwright test --grep @ui",
+    "serve:mock": "node server.js",
+    "test:local": "node run-local-tests.js",
     "report": "npx playwright show-report",
     "report:open": "npx playwright show-report playwright-report"
   },
@@ -33,7 +35,6 @@
     "@types/node": "^25.5.2"
   },
   "dependencies": {
-    "axios": "^1.15.0",
     "dotenv": "^16.5.0"
   }
 }

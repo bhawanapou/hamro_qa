@@ -1,218 +1,126 @@
-# Hamro Patro QA Automation Framework
+﻿# Hamro Patro QA Automation Framework
 
-Enterprise-level QA Automation Testing Framework for [Hamro Patro](https://www.hamropatro.com) built with Playwright, JavaScript, and Node.js.
+A lightweight, academic-friendly Playwright automation framework for testing the [Hamro Patro](https://www.hamropatro.com) website.
 
-## Project Overview
+## Project Summary
 
-This framework provides comprehensive automated testing coverage for the Hamro Patro web application — Nepal's most popular calendar and lifestyle platform. It includes functional, UI, smoke, regression, API, responsive, and performance tests.
+This project demonstrates a clean JavaScript-based Playwright automation framework using the Page Object Model (POM). It is designed for final-year academic submission, with a focus on readability, stability, and low resource usage.
 
-### Key Features
+## What’s Included
 
-- **Page Object Model (POM)** architecture for maintainability
-- **Cross-browser testing** (Chromium, Firefox, WebKit)
-- **Mobile device emulation** (Pixel 5, iPhone 12)
-- **Parallel test execution** for faster feedback
-- **API testing** with Axios
-- **HTML reporting** with screenshots and videos on failure
-- **Data-driven testing** with JSON fixtures
-- **Configurable** via environment variables
-- **Utility helpers** (logger, screenshot, random data generator)
+- UI and functional tests using Playwright
+- API endpoint validation using Playwright request fixtures
+- Page Object Model architecture for maintainability
+- Shared failure handling with automatic screenshots
+- Academic documentation and viva materials
+- Simple configuration using `.env`
+- Optimized settings for low-end laptops
 
-## Framework Structure
+## Folder Structure
 
 ```
-QA/
-├── tests/                    # Test suites
-│   ├── homepage.spec.js      # Homepage tests
-│   ├── login.spec.js         # Login/authentication tests
-│   ├── search.spec.js        # Search functionality tests
-│   ├── calendar.spec.js      # Calendar module tests
-│   ├── news.spec.js          # News module tests
-│   ├── notes.spec.js         # Notes feature tests
-│   ├── navigation.spec.js    # Navigation and link tests
-│   ├── responsive.spec.js    # Responsive design tests
-│   ├── performance.spec.js   # Performance/load time tests
-│   └── api.spec.js           # API endpoint tests
-├── pageObjects/              # Page Object Model classes
-│   ├── HomePage.js
-│   ├── LoginPage.js
-│   ├── SearchPage.js
-│   ├── CalendarPage.js
-│   ├── NewsPage.js
-│   ├── NotesPage.js
-│   └── NavigationPage.js
-├── fixtures/                 # Test data and fixtures
-│   └── testData.json
-├── utils/                    # Utility helpers
-│   ├── logger.js
-│   ├── screenshotHelper.js
-│   └── randomDataGenerator.js
-├── helper/                   # Test helpers
-│   └── testHelper.js
-├── reports/                  # Generated reports
-├── screenshots/              # Failure screenshots
-├── playwright.config.js      # Playwright configuration
-├── package.json              # Dependencies and scripts
-├── .env.example              # Environment variable template
-└── README.md                 # This file
+.
+├── fixtures/                # Test data and configuration
+├── pageObjects/             # Page Object Model classes
+├── tests/                   # Playwright test suites
+├── utils/                   # Helper utilities
+├── reports/                 # Test logs and generated files
+├── screenshots/             # Failure screenshots
+├── playwright.config.js     # Playwright configuration
+├── package.json             # Node dependencies and scripts
+├── .env.example             # Environment variable template
+├── README.md                # Project documentation
+└── ACADEMIC_DOCUMENTATION.md # Academic documentation and viva materials
 ```
 
 ## Prerequisites
 
-- **Node.js** >= 18.x
-- **npm** >= 9.x
+- Node.js 18.x or later
+- npm 9.x or later
 
-## Installation
+## Setup
 
 ```bash
-# Clone the repository
-git clone <repo-url>
-cd QA
-
-# Install dependencies
+cd "C:\\Shankar Adhikari\\QA\\QA_project"
 npm install
-
-# Install Playwright browsers
 npx playwright install --with-deps
 ```
 
 ## Configuration
 
-1. Copy the environment template:
-   ```bash
-   cp .env.example .env
-   ```
+Create your local `.env` file from the template:
 
-2. Edit `.env` with your settings:
-   ```
-   BASE_URL=https://www.hamropatro.com
-   ```
+```powershell
+copy .env.example .env
+```
 
-## Running Tests
+Then update settings if needed:
 
-### All Tests
+```env
+BASE_URL=https://www.hamropatro.com
+```
+
+## Run Tests
+
+### Run all tests
+
 ```bash
 npm test
 ```
 
-### Headed Mode (with browser UI)
-```bash
-npm run test:headed
-```
+### Run Chromium only
 
-### Debug Mode
-```bash
-npm run test:debug
-```
-
-### Specific Browser
 ```bash
 npm run test:chromium
-npm run test:firefox
-npm run test:webkit
 ```
 
-### Mobile Tests
+### Run API tests only
+
 ```bash
-npm run test:mobile
+npm run test:api
 ```
 
-### By Test Type
+### Run a single file
+
 ```bash
-npm run test:smoke        # Smoke tests
-npm run test:regression   # Regression tests
-npm run test:api          # API tests
-npm run test:ui           # UI tests
+npx playwright test tests/login.spec.js
 ```
 
-### Specific Test File
-```bash
-npx playwright test tests/homepage.spec.js
-npx playwright test tests/api.spec.js
-```
+## Test Types
 
-## Test Reports
+- `@smoke` — basic sanity checks
+- `@regression` — broader feature coverage
+- `@ui` — visual and element checks
+- `@api` — backend endpoint validations
 
-### View HTML Report
+## Reporting
+
+HTML report generation is available via:
+
 ```bash
 npm run report
 ```
 
-Reports are generated in `playwright-report/` with:
-- Test results summary
-- Screenshots on failure
-- Video recordings on failure
-- Trace files for debugging
+The report includes:
 
-## Testing Types
+- test summary
+- failure screenshots
+- trace files for debugging
 
-| Type | Tag | Description |
-|------|-----|-------------|
-| Smoke | `@smoke` | Critical path tests to verify basic functionality |
-| Regression | `@regression` | Comprehensive tests for all features |
-| UI | `@ui` | User interface and visual tests |
-| API | `@api` | Backend API endpoint validation |
+## Academic Notes
 
-## Test Coverage
-
-### Functional Tests
-- Homepage loading and content verification
-- Navigation between all pages
-- Calendar month/year navigation
-- News section and articles
-- Notes feature (login-gated)
-- Search functionality
-
-### Login Tests
-- Login flow trigger
-- Invalid credentials handling
-- Empty field validation
-- Session state verification
-
-### API Tests
-- HTTP status code validation
-- Response time measurement
-- Content-type verification
-- Error handling for invalid routes
-
-### Responsive Tests
-- Mobile viewport (375x667)
-- Tablet viewport (768x1024)
-- Desktop viewport (1280x720)
-- Large desktop viewport (1920x1080)
-- Device emulation (Pixel 5, iPhone 12)
-
-### Performance Tests
-- Page load time measurement
-- Navigation timing
-- Resource loading validation
-
-## Best Practices
-
-- **Page Object Model**: All page interactions are encapsulated in POM classes
-- **Explicit waits**: Uses `waitForLoadState`, `waitForTimeout` for stability
-- **Assertions**: Uses Playwright's built-in `expect` for retry-safe assertions
-- **Data-driven**: Test data is externalized in `fixtures/testData.json`
-- **Cross-browser**: Tests run on Chromium, Firefox, and WebKit
-- **Parallel execution**: Tests run in parallel for faster feedback
-- **Screenshots/Videos**: Automatically captured on failure
-- **Clean code**: Modular, reusable methods with descriptive names
+- Uses **Page Object Model** for clean separation of page behavior and test scenarios
+- Uses **Playwright assertions** for retry-safe test stability
+- Designed for **low resource consumption** by limiting worker count and disabling video recording
+- Includes **failure capture** and **structured logging** for easier debugging
 
 ## Troubleshooting
 
-### Browser not installed
-```bash
-npx playwright install --with-deps
-```
+If tests fail with environment or dependency errors:
 
-### Tests timing out
-Increase timeout in `playwright.config.js`:
-```js
-timeout: 120_000,
-```
+1. Ensure Node.js is installed
+2. Run `npm install`
+3. Run `npx playwright install --with-deps`
+4. Confirm `.env` exists and contains `BASE_URL`
 
-### Running on CI
-Set the `CI` environment variable:
-```bash
-CI=true npm test
-```
+If a test fails due to UI changes, inspect the failure screenshot in `screenshots/` and update the locator in `pageObjects/`.

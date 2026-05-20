@@ -10,72 +10,36 @@ const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 /**
- * Hamro Patro QA Automation Framework - Playwright Configuration
- * @see https://playwright.dev/docs/test-configuration
+ * Playwright configuration optimized for academic use and low-end laptops.
  */
 export default defineConfig({
   testDir: './tests',
   outputDir: './test-results',
-
-  /* Maximum time one test can run */
-  timeout: 60_000,
-
-  /* Expect timeout for assertions */
+  timeout: 30_000, // maximum time a single test can run
   expect: {
-    timeout: 15_000,
+    timeout: 8_000, // default time for Playwright assertions
   },
-
-  /* Run tests in files in parallel */
-  fullyParallel: true,
-
-  /* Fail the build on CI if you accidentally left test.only in the source code */
-  forbidOnly: !!process.env.CI,
-
-  /* Retry failed tests */
-  retries: process.env.CI ? 2 : 1,
-
-  /* Parallel workers */
-  workers: process.env.CI ? 2 : undefined,
-
-  /* Reporter configuration */
+  fullyParallel: false, // run tests with a single worker for stability
+  forbidOnly: !!process.env.CI, // fail if test.only is left in code
+  retries: 1, // one retry to reduce false negatives while keeping execution light
+  workers: 1, // single worker to keep CPU and memory use low
   reporter: [
     ['html', { outputFolder: 'playwright-report', open: 'never' }],
     ['list'],
   ],
-
-  /* Shared settings for all projects */
   use: {
-    baseURL: process.env.BASE_URL || 'https://www.hamropatro.com',
-
-    /* Screenshots on failure */
-    screenshot: 'only-on-failure',
-
-    /* Video on failure */
-    video: 'retain-on-failure',
-
-    /* Collect trace on first retry */
-    trace: 'on-first-retry',
-
-    /* Navigation timeout */
-    navigationTimeout: 30_000,
-
-    /* Action timeout */
-    actionTimeout: 15_000,
-
-    /* Viewport */
+    baseURL: process.env.BASE_URL || 'http://localhost:3000',
+    headless: true, // run in headless mode by default for faster execution
+    screenshot: 'only-on-failure', // capture only failed test screenshots
+    video: 'off', // disable video recording to save disk space
+    trace: 'on-first-retry', // collect trace only when retrying failures
+    navigationTimeout: 25_000, // timeout for page navigation
+    actionTimeout: 12_000, // timeout for user actions like click/type
     viewport: { width: 1280, height: 720 },
-
-    /* Ignore HTTPS errors */
-    ignoreHTTPSErrors: true,
-
-    /* Accept downloads */
-    acceptDownloads: true,
-
-    /* Locale */
+    ignoreHTTPSErrors: true, // ignore certificate issues during testing
+    acceptDownloads: false, // disable downloads by default for speed
     locale: 'en-US',
   },
-
-  /* Configure projects for cross-browser testing */
   projects: [
     {
       name: 'chromium',
@@ -95,7 +59,7 @@ export default defineConfig({
     },
     {
       name: 'Mobile Safari',
-      use: { ...devices['iPhone 12'] },
+      use: { ...devices['iPhone 12'], hasTouch: true },
     },
   ],
 });

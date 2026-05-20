@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './testSetup.js';
 import { NewsPage } from '../pageObjects/NewsPage.js';
 
 test.describe('News Module Tests @regression @ui', () => {

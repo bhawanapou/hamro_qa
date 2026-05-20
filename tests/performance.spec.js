@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './testSetup.js';
 import testData from '../fixtures/testData.json' with { type: 'json' };
 
 test.describe('Performance Tests @regression', () => {

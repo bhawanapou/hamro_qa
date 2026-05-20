@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './testSetup.js';
 import { LoginPage } from '../pageObjects/LoginPage.js';
 import testData from '../fixtures/testData.json' with { type: 'json' };
 
@@ -10,61 +10,53 @@ test.describe('Login Tests @regression @ui', () => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
   });
 
-  test('should display account/login icon on homepage', async () => {
-    await expect(loginPage.accountIcon).toBeAttached();
+  test('should display the account icon on homepage', async () => {
+    await expect(loginPage.accountIcon).toBeVisible({ timeout: 10_000 });
   });
 
-  test('should trigger login flow when clicking account icon', async () => {
+  test('should open login flow when clicking the account icon', async () => {
     await loginPage.openLoginFlow();
-    const triggered = await loginPage.verifyLoginFlowTriggered();
-    expect(triggered).toBeTruthy();
+    await expect(loginPage.loginModal).toBeVisible();
   });
 
-  test('should handle invalid login credentials gracefully', async () => {
+  test('should show an error for invalid login credentials', async () => {
     await loginPage.loginWithCredentials(
       testData.invalidCredentials.email,
       testData.invalidCredentials.password
     );
-    // Hamro Patro uses OTP login; verify it handles invalid input without crashing
-    const url = loginPage.page.url();
-    expect(url).toBeTruthy();
+    expect(await loginPage.verifyErrorDisplayed()).toBe(true);
   });
 
-  test('should handle empty email field submission', async () => {
+  test('should validate missing email field during login', async () => {
     await loginPage.loginWithCredentials(
       testData.invalidCredentials.emptyEmail,
       testData.invalidCredentials.emptyPassword
     );
-    const url = loginPage.page.url();
-    expect(url).toBeTruthy();
+    expect(await loginPage.verifyErrorDisplayed()).toBe(true);
   });
 
-  test('should handle invalid email format', async () => {
+  test('should validate invalid email format during login', async () => {
     await loginPage.loginWithCredentials(
       testData.invalidCredentials.invalidEmail,
       testData.validCredentials.password
     );
-    const url = loginPage.page.url();
-    expect(url).toBeTruthy();
+    expect(await loginPage.verifyErrorDisplayed()).toBe(true);
   });
 
-  test('should handle short/weak password validation', async () => {
+  test('should validate short password handling', async () => {
     await loginPage.loginWithCredentials(
       testData.validCredentials.email,
       testData.invalidCredentials.shortPassword
     );
-    const url = loginPage.page.url();
-    expect(url).toBeTruthy();
+    expect(await loginPage.verifyErrorDisplayed()).toBe(true);
   });
 
-  test('should not be logged in by default (session validation)', async () => {
-    const isLoggedIn = await loginPage.isLoggedIn();
-    expect(isLoggedIn).toBeFalsy();
+  test('should not be logged in by default', async () => {
+    expect(await loginPage.isLoggedIn()).toBe(false);
   });
 
-  test('should have login form elements when login flow is triggered', async () => {
+  test('should show login form inputs when login flow starts', async () => {
     const hasFormElements = await loginPage.verifyLoginFormElements();
-    // Login flow should redirect or show a form
-    expect(typeof hasFormElements).toBe('boolean');
+    expect(hasFormElements).toBe(true);
   });
 });

@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './testSetup.js';
 import { SearchPage } from '../pageObjects/SearchPage.js';
 import testData from '../fixtures/testData.json' with { type: 'json' };
 
@@ -19,45 +19,42 @@ test.describe('Search Tests @regression @ui', () => {
     await searchPage.verifySearchAcceptsInput(keyword);
   });
 
-  test('should handle valid search query', async () => {
+  test('should handle valid search queries and show results', async () => {
     for (const keyword of testData.searchKeywords.valid) {
       await searchPage.search(keyword);
-      const url = searchPage.page.url();
-      expect(url).toBeTruthy();
+      expect(await searchPage.getSearchValue()).toContain(keyword.slice(0, 3));
       await searchPage.clearSearch();
     }
   });
 
-  test('should handle empty search gracefully', async () => {
+  test('should handle empty search without failure', async () => {
     await searchPage.search(testData.searchKeywords.empty);
-    const url = searchPage.page.url();
-    expect(url).toBeTruthy();
+    await expect(searchPage.searchInput).toHaveValue('');
   });
 
-  test('should handle invalid/nonsense search terms', async () => {
+  test('should handle invalid search terms without crashing', async () => {
     for (const keyword of testData.searchKeywords.invalid) {
       await searchPage.search(keyword);
-      const url = searchPage.page.url();
-      expect(url).toBeTruthy();
+      expect(await searchPage.getSearchValue()).toBe(keyword);
       await searchPage.clearSearch();
     }
   });
 
-  test('should handle special character search without errors', async () => {
+  test('should handle special characters in search', async () => {
     for (const specialChar of testData.searchKeywords.specialCharacters) {
-      await searchPage.verifySpecialCharacterSearch(specialChar);
+      const visible = await searchPage.verifySpecialCharacterSearch(specialChar);
+      expect(visible).toBe(true);
       await searchPage.clearSearch();
     }
   });
 
-  test('should clear the search input', async () => {
+  test('should clear the search input field', async () => {
     await searchPage.search('test');
     await searchPage.clearSearch();
-    const value = await searchPage.getSearchValue();
-    expect(value).toBe('');
+    expect(await searchPage.getSearchValue()).toBe('');
   });
 
-  test('should preserve search input after typing', async () => {
+  test('should preserve typed search text', async () => {
     const query = 'Festival';
     await searchPage.verifySearchAcceptsInput(query);
   });

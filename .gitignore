@@ -1,24 +1,26 @@
 # Dependencies
 node_modules/
 
-# Playwright
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
-/playwright/.auth/
+# Playwright / test outputs
+playwright-report/
+test-results/
+screenshots/
+reports/
+trace/
+traces/
 
-# Screenshots and videos (generated during test runs)
-/screenshots/*.png
-/reports/*.log
+# Logs
+*.log
 
-# Environment
+# Media artifacts
+*.webm
+*.mp4
+*.zip
+*.png
+
+# Environment files
 .env
 
-# OS
+# OS files
 .DS_Store
 Thumbs.db
-
-# IDE
-.vscode/
-.idea/

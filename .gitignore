@@ -1,9 +1,11 @@
 # Dependencies
 node_modules/
 
-# Playwright / test outputs
+# Playwright outputs
 playwright-report/
 test-results/
+blob-report/
+html-report/
 screenshots/
 reports/
 trace/
@@ -12,15 +14,24 @@ traces/
 # Logs
 *.log
 
-# Media artifacts
-*.webm
-*.mp4
-*.zip
-*.png
+# Documents & backups
+*.docx
+*.bak
+*.pdf
 
-# Environment files
+# Generated files
+generated_test_cases.json
+
+# Env
 .env
+.env.*
 
-# OS files
+# OS
 .DS_Store
 Thumbs.db
+
+# Analysis / docs (user requested clean repo)
+test_analysis.md
+
+# Tools folder (if not needed)
+tools/

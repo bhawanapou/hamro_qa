@@ -1,0 +1,241 @@
+#filter-content{
+    padding: 30px 0;
+    display: none;
+}
+
+select, input{
+    font-family: 'Ek Mukta' !important;
+}
+.col-sm-6{
+
+}
+
+.magazine-card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 90%;
+    height:205px;
+    overflow:hidden;
+}
+
+.magazine-card-detail{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 100%;
+    background-color: #FFFFFF;
+}
+.margin-0-18{
+    margin-left: 0px;
+    margin-right: 18px;
+}
+.margin-0-16{
+    margin-left: 0px;
+    margin-right: 16px;
+}
+.margin-16-0{
+    margin-left: 16px;
+    margin-right: 0px;
+}
+.margin-18-0{
+    margin-left: 18px;
+    margin-right: 0px;
+}
+.margin-18-18{
+    margin-right: 18px;
+    margin-left: 18px;
+}
+
+.magazine-container{
+    padding: 19px 16px;
+    text-align: left;
+    padding-right: 0px !important;
+    max-height: 45px;
+    overflow: hidden;
+}
+.viewAll{
+    position:absolute;
+    right:6px;
+}
+/*magazine header */
+.selectBox{
+
+    padding: 5px;
+    text-align: left;
+    box-shadow: 1px 1px 1px 0px #757575;
+    border-radius: 3px;
+    margin-right: 11px;
+    background-color: #ffffff;
+    font-size: 16px;
+    color: #757575;
+    /* border-style: inset; */
+    border-width: 1px;
+    border-style: inset;
+    border-color: white;
+    border-image: initial;
+
+}
+.showButton{
+    border-radius: 3px;
+    background-color: #FF9800;
+    box-shadow: 1px 1px 1px 1px #f6982e;
+    border: 1px solid #f6982e;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    padding-top: 5px;
+    min-width: 78px;
+}
+.redHeader{
+    color: #b8351e;
+}
+.filter-header{
+    display:flex;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.filter-text{
+    text-align: right;
+    color:black;
+    margin-top: 5px;
+    font-size: 14px;
+    margin-right: 2px
+}
+.option{
+
+}
+.margin-bottom-10{
+    margin-bottom: 10px !important;
+}
+.magazine-content{
+    background-color: #efebe9 !important;
+    padding-bottom: 7px !important;
+    padding: 0px !important;
+}
+.display-grid
+{
+    display: grid;
+    gap:10px;
+}
+.class-flex{
+    display:flex;
+    justify-content: space-between;
+    text-decoration: none;
+    color: black;
+}
+.magazineheading{
+    color:black;
+    font-size: 22px;
+    cursor: pointer;
+}
+.grey-background{
+    background-color: #efebe9 !important;
+}
+.white-background{
+    background: #ffffff !important;
+}
+.padding7{
+    padding:7px !important;
+}
+.headerrow{
+    width: auto !important;
+}
+@media only screen and (max-width: 766px){
+
+    .filter-header{
+        display:block;
+    }
+    .filter-text{
+        text-align: left;
+        display: inline-block;
+    }
+    .headerrow{
+        width: 100% !important;
+    }
+
+}
+
+
+@media only screen and (max-width: 1159px){
+    .filter-text{
+        display: none;
+    }
+}
+@media only screen and (max-width: 800px) {
+
+    .headerrow{
+        width: 100%;
+    }
+}
+.margin-0-0{
+
+}
+
+
+
+@media only screen and (max-width: 480px){
+    .viewAll{
+        float:right;
+        right: 0px;
+    }
+}
+@media only screen and (max-width: 480px){
+    .magazine-card{
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: 100%;,
+        height: auto;
+        overflow: unset;
+    }
+    .margin-0-18{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .margin-18-0{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .margin-18-18{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .margin-0-16{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .margin-16-0{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .magazine-container{
+        padding: 30px 16px;
+    }
+    .showButton{
+        padding:    10px;
+    }
+    .col-sm-6{
+        width: 45% !important;
+        margin-left: 10% !important;
+    }
+    .margin-0-0{
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+
+}
+
+.loader {
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #b8351e; /* hamro patro red */
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+

@@ -7,7 +7,7 @@ test.describe('Login Tests @regression @ui', () => {
 
   test.beforeEach(async ({ page }) => {
     loginPage = new LoginPage(page);
-    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.goto('/', { waitUntil: 'load' });
   });
 
   test('should display the account icon on homepage', async () => {
@@ -60,3 +60,4 @@ test.describe('Login Tests @regression @ui', () => {
     expect(hasFormElements).toBe(true);
   });
 });
+

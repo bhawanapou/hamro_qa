@@ -1,0 +1,3704 @@
+<script>
+    function getTodaysDate() {
+        var eyear="2026";
+        var emonth="05";
+        var eday="27";
+        var todayDate=eyear+'-'+emonth+'-'+eday;
+        var todaySplit=todayDate.split('-');
+        var today=new Date(todaySplit[0], parseInt(todaySplit[1], 10) - 1, parseInt(todaySplit[2]));
+        return today;
+    }
+
+    function getTodayDateNepali() {
+        var eyear="2083";
+        var emonth="3";
+        var eday="1";
+        var todayDate=eyear+'-'+emonth+'-'+eday;
+        var todaySplit=todayDate.split('-');
+        return todaySplit;
+    }
+    function getAppId() {
+        return 'hamropatro';
+    }
+    function getBackEndUrl() {
+        return 'https://everestbackend-api.hamropatro.com';
+    }
+    function getPageName() {
+        return 'home';
+    }
+</script>
+<div class="current_date">
+    <div class="dropdown">
+        <form action="" method="get" name="search_form" onSubmit="return false;">
+            <a href="/calendar/2083/2"
+               class="prev icon-flipped newArrow arrowLeft">Prev</a>
+            <select name="year" id="selectYear" class="calendarSelect selectYear timeSelect" onchange="changetime();"
+                    style="background-image: url('../images/icon/down.png');background-repeat: no-repeat;background-position-x: 92%;background-position-y: 7px;border-radius: 2px;padding-left: 10px;cursor: pointer;
+                        padding-right: 2rem;border: none;color: #555555;padding-top: 3px;padding-bottom: 3px;height: 33px">
+                                    <option value="2000">२०००</option>
+                                        <option value="2001">२००१</option>
+                                        <option value="2002">२००२</option>
+                                        <option value="2003">२००३</option>
+                                        <option value="2004">२००४</option>
+                                        <option value="2005">२००५</option>
+                                        <option value="2006">२००६</option>
+                                        <option value="2007">२००७</option>
+                                        <option value="2008">२००८</option>
+                                        <option value="2009">२००९</option>
+                                        <option value="2010">२०१०</option>
+                                        <option value="2011">२०११</option>
+                                        <option value="2012">२०१२</option>
+                                        <option value="2013">२०१३</option>
+                                        <option value="2014">२०१४</option>
+                                        <option value="2015">२०१५</option>
+                                        <option value="2016">२०१६</option>
+                                        <option value="2017">२०१७</option>
+                                        <option value="2018">२०१८</option>
+                                        <option value="2019">२०१९</option>
+                                        <option value="2020">२०२०</option>
+                                        <option value="2021">२०२१</option>
+                                        <option value="2022">२०२२</option>
+                                        <option value="2023">२०२३</option>
+                                        <option value="2024">२०२४</option>
+                                        <option value="2025">२०२५</option>
+                                        <option value="2026">२०२६</option>
+                                        <option value="2027">२०२७</option>
+                                        <option value="2028">२०२८</option>
+                                        <option value="2029">२०२९</option>
+                                        <option value="2030">२०३०</option>
+                                        <option value="2031">२०३१</option>
+                                        <option value="2032">२०३२</option>
+                                        <option value="2033">२०३३</option>
+                                        <option value="2034">२०३४</option>
+                                        <option value="2035">२०३५</option>
+                                        <option value="2036">२०३६</option>
+                                        <option value="2037">२०३७</option>
+                                        <option value="2038">२०३८</option>
+                                        <option value="2039">२०३९</option>
+                                        <option value="2040">२०४०</option>
+                                        <option value="2041">२०४१</option>
+                                        <option value="2042">२०४२</option>
+                                        <option value="2043">२०४३</option>
+                                        <option value="2044">२०४४</option>
+                                        <option value="2045">२०४५</option>
+                                        <option value="2046">२०४६</option>
+                                        <option value="2047">२०४७</option>
+                                        <option value="2048">२०४८</option>
+                                        <option value="2049">२०४९</option>
+                                        <option value="2050">२०५०</option>
+                                        <option value="2051">२०५१</option>
+                                        <option value="2052">२०५२</option>
+                                        <option value="2053">२०५३</option>
+                                        <option value="2054">२०५४</option>
+                                        <option value="2055">२०५५</option>
+                                        <option value="2056">२०५६</option>
+                                        <option value="2057">२०५७</option>
+                                        <option value="2058">२०५८</option>
+                                        <option value="2059">२०५९</option>
+                                        <option value="2060">२०६०</option>
+                                        <option value="2061">२०६१</option>
+                                        <option value="2062">२०६२</option>
+                                        <option value="2063">२०६३</option>
+                                        <option value="2064">२०६४</option>
+                                        <option value="2065">२०६५</option>
+                                        <option value="2066">२०६६</option>
+                                        <option value="2067">२०६७</option>
+                                        <option value="2068">२०६८</option>
+                                        <option value="2069">२०६९</option>
+                                        <option value="2070">२०७०</option>
+                                        <option value="2071">२०७१</option>
+                                        <option value="2072">२०७२</option>
+                                        <option value="2073">२०७३</option>
+                                        <option value="2074">२०७४</option>
+                                        <option value="2075">२०७५</option>
+                                        <option value="2076">२०७६</option>
+                                        <option value="2077">२०७७</option>
+                                        <option value="2078">२०७८</option>
+                                        <option value="2079">२०७९</option>
+                                        <option value="2080">२०८०</option>
+                                        <option value="2081">२०८१</option>
+                                        <option value="2082">२०८२</option>
+                                        <option value="2083" selected="selected">२०८३</option>
+                                        <option value="2084">२०८४</option>
+                                        <option value="2085">२०८५</option>
+                                        <option value="2086">२०८६</option>
+                                        <option value="2087">२०८७</option>
+                                        <option value="2088">२०८८</option>
+                                        <option value="2089">२०८९</option>
+                                </select>
+
+            <select name="month" id="selectMonth" class="calendarSelect selectYear timeSelect" style="background-image: url('../images/icon/down.png');background-repeat: no-repeat;background-position-x: 92%;background-position-y: 7px;border-radius: 2px;padding-left: 10px;
+                        padding-right: 2rem;border: none;color: #555555;margin-left: 2px;padding-top: 3px;padding-bottom: 3px;cursor: pointer;height: 33px">
+                                    <option value="1">वैशाख</option>
+                                        <option value="2">जेठ</option>
+                                        <option value="3" selected="selected">असार</option>
+                                        <option value="4">साउन</option>
+                                        <option value="5">भदौ</option>
+                                        <option value="6">असोज</option>
+                                        <option value="7">कार्तिक</option>
+                                        <option value="8">मंसिर</option>
+                                        <option value="9">पुष</option>
+                                        <option value="10">माघ</option>
+                                        <option value="11">फागुन</option>
+                                        <option value="12">चैत</option>
+                                </select>
+            <a href="/calendar/2083/4"
+               class="next icon-flipped newArrow arrowRight">Next</a>
+        </form>
+    </div>
+    <ul class="clearfix marginCalender">
+        <li style="display: flex;"><span class="today"><a href="#" class="addTodayButton" onclick="goToToday(); return false;"
+                                                          style="padding-top: 5px;padding-right: 10px">आज</a></span>
+            <div style="margin-left: 10px"><img src="../images/icon/calender_icon.png"
+                                                style="width: 34px;height: 34px;cursor: pointer"
+                                                class="calenderClickImage">
+                <a href="/date/2083-2-13"><img
+                            src="../images/icon/day-details.png"
+                            style="width: 34px;height: 34px;cursor: pointer;margin-left: 7px"
+                            class="calenderClickImage"></a></div>
+        </li>
+        <div style="display: flex">
+            <img src="../images/icon/calender_icon.png" class="calenderClickImageLarge"/>
+            <a href="/date/"><img src="../images/icon/day-details.png"
+                                                                   class="calenderClickImageLarge"/></a>
+        </div>
+
+
+        <li class="marginCalender">
+
+            <span class="newDateText headderNew">२०८३ असार                | </span>
+            <span class="newDateText headderNew">
+                    Jun/Jul 2026                    </span>
+        </li>
+    </ul>
+</div>
+<div class="calendar" style="margin-bottom: 8px;">
+    <ul class="days clearfix" style="background:#f8f8f8;">
+        <li style="color:#898989;">आइतवार<br/>
+            <span>Sunday</span></li>
+        <li style="color:#898989;">सोमवार<br/>
+            <span>Monday</span></li>
+        <li style="color:#898989;">मङ्गलवार<br/>
+            <span>Tuesday</span></li>
+        <li style="color:#898989;">बुधवार<br/>
+            <span>Wednesday</span></li>
+        <li style="color:#898989;">बिहिवार<br/>
+            <span>Thursday</span></li>
+        <li style="color:#898989;">शुक्रवार<br/>
+            <span>Friday</span></li>
+        <li style="color:#898989;">शनिवार<br/>
+            <span>Saturday</span></li>
+    </ul>
+    <ul class="days responsive clearfix" style="background: #f8f8f8">
+        <li style="color:#898989;">आइत</li>
+        <li style="color:#898989;">सोम</li>
+        <li style="color:#898989;">मङ्गल</li>
+        <li style="color:#898989;">बुध</li>
+        <li style="color:#898989;">बिहि</li>
+        <li style="color:#898989;">शुक</li>
+        <li style="color:#898989;">शनि</li>
+    </ul>
+    <ul class="dates clearfix">
+        
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('0')"
+                    id="0"
+                    class="disable
+                                                              
+                                ">
+
+                        <span id="2083-3-31-usn"
+                              style="display: none"></span>
+                <span class="event">विश्व रक्तदाता दिवस</span>
+                <span class="nep">३१</span>
+                                    <span class="tithi">चतुर्दशी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">14</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="0"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapperDisable" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetailsDisabled">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    ३१ जेठ २०८३, आइतवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">June 14, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    अधिक जेठ कृष्ण चतुर्दशी<br/>
+                                    पञ्चाङ्ग: धृति शकुनि रोहिणी                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-2-31"
+                                           onClick="viewevents('2083-2-31')">
+                                            विश्व रक्तदाता दिवस                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-2-31"
+                                       onClick="viewevents('2083-2-31')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-6-15')"
+                    id="2026-6-15"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-1-usn"
+                              style="display: none"></span>
+                <span class="event">अधिकमास समाप्ति/मिथुन संक्रान्ति/सोमबारे औंसी/मत्स्यनारायण मेला समाप्ति/विश्व अग्रज दुर्व्यवहार जागरुकता दिवस</span>
+                <span class="nep">१</span>
+                                    <span class="tithi">औंसी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">15</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-6-15-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    १ असार २०८३, सोमवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">June 15, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    अधिक जेठ कृष्ण औंसी<br/>
+                                    पञ्चाङ्ग: शूल नाग मृगशिरा                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-3-1"
+                                           onClick="viewevents('2083-3-1')">
+                                            अधिकमास समाप्ति/मिथुन संक्रान्ति/सोमबारे औंसी/मत्स्यनारायण मेला समाप्ति/विश्व अग्रज दुर्व्यवहार जागरुकता दिवस                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-1"
+                                       onClick="viewevents('2083-3-1')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-6-15-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-6-15-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-6-15-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-6-15','2083-3-1')"
+                                            id="2026-6-15-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-6-16')"
+                    id="2026-6-16"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-2-usn"
+                              style="display: none"></span>
+                <span class="event">अन्तर्राष्ट्रिय परिवार रेमिटेयान्स दिवस</span>
+                <span class="nep">२</span>
+                                    <span class="tithi">द्वितीया</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">16</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-6-16-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    २ असार २०८३, मंगलवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">June 16, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    जेठ शुक्ल द्वितीया<br/>
+                                    पञ्चाङ्ग: वृद्धि बालव आर्द्रा                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-3-2"
+                                           onClick="viewevents('2083-3-2')">
+                                            अन्तर्राष्ट्रिय परिवार रेमिटेयान्स दिवस                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-2"
+                                       onClick="viewevents('2083-3-2')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-6-16-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-6-16-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-6-16-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-6-16','2083-3-2')"
+                                            id="2026-6-16-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-6-17')"
+                    id="2026-6-17"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-3-usn"
+                              style="display: none"></span>
+                <span class="event">विश्व खडेरी विरुद्ध संघर्ष दिवस</span>
+                <span class="nep">३</span>
+                                    <span class="tithi">तृतिया</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">17</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-6-17-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    ३ असार २०८३, बुधवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">June 17, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    जेठ शुक्ल तृतिया<br/>
+                                    पञ्चाङ्ग: ध्रुव तैतल पुनर्वसु                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-3-3"
+                                           onClick="viewevents('2083-3-3')">
+                                            विश्व खडेरी विरुद्ध संघर्ष दिवस                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-3"
+                                       onClick="viewevents('2083-3-3')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-6-17-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-6-17-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-6-17-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-6-17','2083-3-3')"
+                                            id="2026-6-17-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-6-18')"
+                    id="2026-6-18"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-4-usn"
+                              style="display: none"></span>
+                <span class="event">--</span>
+                <span class="nep">४</span>
+                                    <span class="tithi">चतुर्थी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">18</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-6-18-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    ४ असार २०८३, बिहिवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">June 18, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    जेठ शुक्ल चतुर्थी<br/>
+                                    पञ्चाङ्ग: व्याघात वणिज पुष्य                                </div>
+
+                                <br>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-4"
+                                       onClick="viewevents('2083-3-4')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-6-18-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-6-18-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-6-18-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-6-18','2083-3-4')"
+                                            id="2026-6-18-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-6-19')"
+                    id="2026-6-19"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-5-usn"
+                              style="display: none"></span>
+                <span class="event">द्वन्द्वमा यौन हिंसा उन्मूलनको लागि अन्तर्राष्ट्रिय दिवस</span>
+                <span class="nep">५</span>
+                                    <span class="tithi">पञ्चमी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">19</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-6-19-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    ५ असार २०८३, शुक्रवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">June 19, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    जेठ शुक्ल पञ्चमी<br/>
+                                    पञ्चाङ्ग: हर्षण बव अश्लेषा                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-3-5"
+                                           onClick="viewevents('2083-3-5')">
+                                            द्वन्द्वमा यौन हिंसा उन्मूलनको लागि अन्तर्राष्ट्रिय दिवस                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-5"
+                                       onClick="viewevents('2083-3-5')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-6-19-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-6-19-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-6-19-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-6-19','2083-3-5')"
+                                            id="2026-6-19-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-6-20')"
+                    id="2026-6-20"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-6-usn"
+                              style="display: none"></span>
+                <span class="event">सिथि नख:/कुमारषष्ठी/विश्व शरणार्थी दिवस</span>
+                <span class="nep">६</span>
+                                    <span class="tithi">षष्ठी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">20</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-6-20-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    ६ असार २०८३, शनिवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">June 20, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    जेठ शुक्ल षष्ठी<br/>
+                                    पञ्चाङ्ग: वज्र तैतल मघा                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-3-6"
+                                           onClick="viewevents('2083-3-6')">
+                                            सिथि नख:/कुमारषष्ठी/विश्व शरणार्थी दिवस                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-6"
+                                       onClick="viewevents('2083-3-6')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-6-20-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-6-20-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-6-20-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-6-20','2083-3-6')"
+                                            id="2026-6-20-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-6-21')"
+                    id="2026-6-21"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-7-usn"
+                              style="display: none"></span>
+                <span class="event">रवी सप्तमी व्रत/अन्तर्राष्ट्रिय बुवा दिवस/विश्व योग दिवस/संगीत दिवस</span>
+                <span class="nep">७</span>
+                                    <span class="tithi">सप्तमी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">21</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-6-21-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    ७ असार २०८३, आइतवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">June 21, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    जेठ शुक्ल सप्तमी<br/>
+                                    पञ्चाङ्ग: सिद्धि वणिज पूर्व                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-3-7"
+                                           onClick="viewevents('2083-3-7')">
+                                            रवी सप्तमी व्रत/अन्तर्राष्ट्रिय बुवा दिवस/विश्व योग दिवस/संगीत दिवस                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-7"
+                                       onClick="viewevents('2083-3-7')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-6-21-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-6-21-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-6-21-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-6-21','2083-3-7')"
+                                            id="2026-6-21-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-6-22')"
+                    id="2026-6-22"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-8-usn"
+                              style="display: none"></span>
+                <span class="event">गोरखकाली पूजा/वायु अष्टमी</span>
+                <span class="nep">८</span>
+                                    <span class="tithi">अष्टमी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">22</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-6-22-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    ८ असार २०८३, सोमवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">June 22, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    जेठ शुक्ल अष्टमी<br/>
+                                    पञ्चाङ्ग: व्यतिपात बव उत्तर                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-3-8"
+                                           onClick="viewevents('2083-3-8')">
+                                            गोरखकाली पूजा/वायु अष्टमी                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-8"
+                                       onClick="viewevents('2083-3-8')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-6-22-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-6-22-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-6-22-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-6-22','2083-3-8')"
+                                            id="2026-6-22-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-6-23')"
+                    id="2026-6-23"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-9-usn"
+                              style="display: none"></span>
+                <span class="event">अन्तर्राष्ट्रिय  एकल महिला दिवस</span>
+                <span class="nep">९</span>
+                                    <span class="tithi">नवमी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">23</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-6-23-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    ९ असार २०८३, मंगलवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">June 23, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    जेठ शुक्ल नवमी<br/>
+                                    पञ्चाङ्ग: वरियान कौलव हस्ता                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-3-9"
+                                           onClick="viewevents('2083-3-9')">
+                                            अन्तर्राष्ट्रिय  एकल महिला दिवस                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-9"
+                                       onClick="viewevents('2083-3-9')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-6-23-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-6-23-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-6-23-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-6-23','2083-3-9')"
+                                            id="2026-6-23-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-6-24')"
+                    id="2026-6-24"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-10-usn"
+                              style="display: none"></span>
+                <span class="event">--</span>
+                <span class="nep">१०</span>
+                                    <span class="tithi">दशमी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">24</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-6-24-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    १० असार २०८३, बुधवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">June 24, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    जेठ शुक्ल दशमी<br/>
+                                    पञ्चाङ्ग: परिधि तैतल चित्रा                                </div>
+
+                                <br>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-10"
+                                       onClick="viewevents('2083-3-10')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-6-24-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-6-24-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-6-24-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-6-24','2083-3-10')"
+                                            id="2026-6-24-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-6-25')"
+                    id="2026-6-25"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-11-usn"
+                              style="display: none"></span>
+                <span class="event">निर्जला एकादशी व्रत/तुलसीको दल राख्ने दिन/भूमी पूजा</span>
+                <span class="nep">११</span>
+                                    <span class="tithi">एकादशी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">25</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-6-25-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    ११ असार २०८३, बिहिवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">June 25, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    जेठ शुक्ल एकादशी<br/>
+                                    पञ्चाङ्ग: शिव वणिज स्वाति                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-3-11"
+                                           onClick="viewevents('2083-3-11')">
+                                            निर्जला एकादशी व्रत/तुलसीको दल राख्ने दिन/भूमी पूजा                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-11"
+                                       onClick="viewevents('2083-3-11')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-6-25-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-6-25-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-6-25-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-6-25','2083-3-11')"
+                                            id="2026-6-25-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-6-26')"
+                    id="2026-6-26"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-12-usn"
+                              style="display: none"></span>
+                <span class="event">अन्तर्राष्ट्रिय  लागू पदार्थ तथा अवैध तस्करी विरुद्ध दिवस</span>
+                <span class="nep">१२</span>
+                                    <span class="tithi">द्वादशी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">26</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-6-26-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    १२ असार २०८३, शुक्रवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">June 26, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    जेठ शुक्ल द्वादशी<br/>
+                                    पञ्चाङ्ग: सिद्ध बव विशाखा                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-3-12"
+                                           onClick="viewevents('2083-3-12')">
+                                            अन्तर्राष्ट्रिय  लागू पदार्थ तथा अवैध तस्करी विरुद्ध दिवस                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-12"
+                                       onClick="viewevents('2083-3-12')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-6-26-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-6-26-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-6-26-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-6-26','2083-3-12')"
+                                            id="2026-6-26-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-6-27')"
+                    id="2026-6-27"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-13-usn"
+                              style="display: none"></span>
+                <span class="event">शनि प्रदोष व्रत</span>
+                <span class="nep">१३</span>
+                                    <span class="tithi">त्रयोदशी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">27</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-6-27-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    १३ असार २०८३, शनिवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">June 27, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    जेठ शुक्ल त्रयोदशी<br/>
+                                    पञ्चाङ्ग: साध्य कौलव अनुराधा                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-3-13"
+                                           onClick="viewevents('2083-3-13')">
+                                            शनि प्रदोष व्रत                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-13"
+                                       onClick="viewevents('2083-3-13')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-6-27-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-6-27-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-6-27-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-6-27','2083-3-13')"
+                                            id="2026-6-27-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-6-28')"
+                    id="2026-6-28"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-14-usn"
+                              style="display: none"></span>
+                <span class="event">--</span>
+                <span class="nep">१४</span>
+                                    <span class="tithi">चतुर्दशी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">28</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-6-28-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    १४ असार २०८३, आइतवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">June 28, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    जेठ शुक्ल चतुर्दशी<br/>
+                                    पञ्चाङ्ग: शुभ गर ज्येष्ठा                                </div>
+
+                                <br>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-14"
+                                       onClick="viewevents('2083-3-14')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-6-28-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-6-28-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-6-28-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-6-28','2083-3-14')"
+                                            id="2026-6-28-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-6-29')"
+                    id="2026-6-29"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-15-usn"
+                              style="display: none"></span>
+                <span class="event">दहीचिउरा खाने दिन/राष्ट्रिय धान दिवस/ज्या: पुन्हि/कवीर जयन्ती</span>
+                <span class="nep">१५</span>
+                                    <span class="tithi">पूर्णिमा</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">29</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-6-29-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    १५ असार २०८३, सोमवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">June 29, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    जेठ शुक्ल पूर्णिमा<br/>
+                                    पञ्चाङ्ग: शुक्ल विष्टि/भद्रा मूल                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-3-15"
+                                           onClick="viewevents('2083-3-15')">
+                                            दहीचिउरा खाने दिन/राष्ट्रिय धान दिवस/ज्या: पुन्हि/कवीर जयन्ती                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-15"
+                                       onClick="viewevents('2083-3-15')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-6-29-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-6-29-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-6-29-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-6-29','2083-3-15')"
+                                            id="2026-6-29-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-6-30')"
+                    id="2026-6-30"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-16-usn"
+                              style="display: none"></span>
+                <span class="event">--</span>
+                <span class="nep">१६</span>
+                                    <span class="tithi">पूर्णिमा</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">30</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-6-30-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    १६ असार २०८३, मंगलवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">June 30, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    जेठ शुक्ल पूर्णिमा<br/>
+                                    पञ्चाङ्ग: ब्रह्म बव पूर्वाषाढा                                </div>
+
+                                <br>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-16"
+                                       onClick="viewevents('2083-3-16')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-6-30-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-6-30-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-6-30-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-6-30','2083-3-16')"
+                                            id="2026-6-30-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-7-1')"
+                    id="2026-7-1"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-17-usn"
+                              style="display: none"></span>
+                <span class="event">--</span>
+                <span class="nep">१७</span>
+                                    <span class="tithi">प्रतिपदा</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">1</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-7-1-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    १७ असार २०८३, बुधवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 01, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार कृष्ण प्रतिपदा<br/>
+                                    पञ्चाङ्ग: एन्द्र कौलव पूर्वाषाढा                                </div>
+
+                                <br>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-17"
+                                       onClick="viewevents('2083-3-17')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-7-1-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-7-1-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-7-1-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-7-1','2083-3-17')"
+                                            id="2026-7-1-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-7-2')"
+                    id="2026-7-2"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-18-usn"
+                              style="display: none"></span>
+                <span class="event">विश्व खेलकुद पत्रकार दिवस</span>
+                <span class="nep">१८</span>
+                                    <span class="tithi">द्वितीया</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">2</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-7-2-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    १८ असार २०८३, बिहिवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 02, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार कृष्ण द्वितीया<br/>
+                                    पञ्चाङ्ग: वैधृति गर उत्तरषाढा                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-3-18"
+                                           onClick="viewevents('2083-3-18')">
+                                            विश्व खेलकुद पत्रकार दिवस                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-18"
+                                       onClick="viewevents('2083-3-18')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-7-2-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-7-2-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-7-2-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-7-2','2083-3-18')"
+                                            id="2026-7-2-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-7-3')"
+                    id="2026-7-3"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-19-usn"
+                              style="display: none"></span>
+                <span class="event">--</span>
+                <span class="nep">१९</span>
+                                    <span class="tithi">तृतिया</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">3</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-7-3-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    १९ असार २०८३, शुक्रवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 03, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार कृष्ण तृतिया<br/>
+                                    पञ्चाङ्ग: विषकुम्भ विष्टि/भद्रा श्रवण                                </div>
+
+                                <br>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-19"
+                                       onClick="viewevents('2083-3-19')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-7-3-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-7-3-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-7-3-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-7-3','2083-3-19')"
+                                            id="2026-7-3-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-7-4')"
+                    id="2026-7-4"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-20-usn"
+                              style="display: none"></span>
+                <span class="event">अन्तर्राष्ट्रिय सहकारी दिवस</span>
+                <span class="nep">२०</span>
+                                    <span class="tithi">चतुर्थी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">4</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-7-4-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    २० असार २०८३, शनिवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 04, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार कृष्ण चतुर्थी<br/>
+                                    पञ्चाङ्ग: प्रीति बालव धनिष्ठा                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-3-20"
+                                           onClick="viewevents('2083-3-20')">
+                                            अन्तर्राष्ट्रिय सहकारी दिवस                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-20"
+                                       onClick="viewevents('2083-3-20')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-7-4-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-7-4-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-7-4-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-7-4','2083-3-20')"
+                                            id="2026-7-4-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-7-5')"
+                    id="2026-7-5"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-21-usn"
+                              style="display: none"></span>
+                <span class="event">--</span>
+                <span class="nep">२१</span>
+                                    <span class="tithi">पञ्चमी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">5</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-7-5-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    २१ असार २०८३, आइतवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 05, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार कृष्ण पञ्चमी<br/>
+                                    पञ्चाङ्ग: आयुष्मान तैतल शतभिषा                                </div>
+
+                                <br>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-21"
+                                       onClick="viewevents('2083-3-21')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-7-5-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-7-5-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-7-5-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-7-5','2083-3-21')"
+                                            id="2026-7-5-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-7-6')"
+                    id="2026-7-6"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-22-usn"
+                              style="display: none"></span>
+                <span class="event">--</span>
+                <span class="nep">२२</span>
+                                    <span class="tithi">षष्ठी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">6</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-7-6-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    २२ असार २०८३, सोमवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 06, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार कृष्ण षष्ठी<br/>
+                                    पञ्चाङ्ग: सौभाग्य वणिज पूर्वभाद्र                                </div>
+
+                                <br>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-22"
+                                       onClick="viewevents('2083-3-22')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-7-6-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-7-6-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-7-6-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-7-6','2083-3-22')"
+                                            id="2026-7-6-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-7-7')"
+                    id="2026-7-7"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-23-usn"
+                              style="display: none"></span>
+                <span class="event">गोरखकाली पूजा</span>
+                <span class="nep">२३</span>
+                                    <span class="tithi">सप्तमी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">7</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-7-7-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    २३ असार २०८३, मंगलवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 07, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार कृष्ण सप्तमी<br/>
+                                    पञ्चाङ्ग: शोभन बव उत्तरभाद्र                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-3-23"
+                                           onClick="viewevents('2083-3-23')">
+                                            गोरखकाली पूजा                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-23"
+                                       onClick="viewevents('2083-3-23')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-7-7-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-7-7-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-7-7-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-7-7','2083-3-23')"
+                                            id="2026-7-7-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-7-8')"
+                    id="2026-7-8"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-24-usn"
+                              style="display: none"></span>
+                <span class="event">बुधाष्टमी व्रत</span>
+                <span class="nep">२४</span>
+                                    <span class="tithi">अष्टमी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">8</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-7-8-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    २४ असार २०८३, बुधवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 08, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार कृष्ण अष्टमी<br/>
+                                    पञ्चाङ्ग: अतिगंड कौलव रेवती                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-3-24"
+                                           onClick="viewevents('2083-3-24')">
+                                            बुधाष्टमी व्रत                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-24"
+                                       onClick="viewevents('2083-3-24')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-7-8-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-7-8-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-7-8-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-7-8','2083-3-24')"
+                                            id="2026-7-8-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-7-9')"
+                    id="2026-7-9"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-25-usn"
+                              style="display: none"></span>
+                <span class="event">--</span>
+                <span class="nep">२५</span>
+                                    <span class="tithi">नवमी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">9</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-7-9-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    २५ असार २०८३, बिहिवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 09, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार कृष्ण नवमी<br/>
+                                    पञ्चाङ्ग: सुकर्मा गर अश्विनी                                </div>
+
+                                <br>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-25"
+                                       onClick="viewevents('2083-3-25')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-7-9-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-7-9-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-7-9-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-7-9','2083-3-25')"
+                                            id="2026-7-9-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-7-10')"
+                    id="2026-7-10"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-26-usn"
+                              style="display: none"></span>
+                <span class="event">योगिनी एकादशी व्रत (स्मार्तहरूको)</span>
+                <span class="nep">२६</span>
+                                    <span class="tithi">दशमी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">10</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-7-10-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    २६ असार २०८३, शुक्रवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 10, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार कृष्ण दशमी<br/>
+                                    पञ्चाङ्ग: धृति विष्टि/भद्रा भरणी                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-3-26"
+                                           onClick="viewevents('2083-3-26')">
+                                            योगिनी एकादशी व्रत (स्मार्तहरूको)                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-26"
+                                       onClick="viewevents('2083-3-26')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-7-10-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-7-10-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-7-10-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-7-10','2083-3-26')"
+                                            id="2026-7-10-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-7-11')"
+                    id="2026-7-11"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-27-usn"
+                              style="display: none"></span>
+                <span class="event">योगिनी एकादशी व्रत (वैष्णवहरूको)/विश्व जनसंख्या दिवस</span>
+                <span class="nep">२७</span>
+                                    <span class="tithi">एकादशी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">11</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-7-11-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    २७ असार २०८३, शनिवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 11, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार कृष्ण एकादशी<br/>
+                                    पञ्चाङ्ग: गण्ड बालव कृत्तिका                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-3-27"
+                                           onClick="viewevents('2083-3-27')">
+                                            योगिनी एकादशी व्रत (वैष्णवहरूको)/विश्व जनसंख्या दिवस                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-27"
+                                       onClick="viewevents('2083-3-27')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-7-11-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-7-11-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-7-11-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-7-11','2083-3-27')"
+                                            id="2026-7-11-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-7-12')"
+                    id="2026-7-12"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-28-usn"
+                              style="display: none"></span>
+                <span class="event">प्रदोष व्रत</span>
+                <span class="nep">२८</span>
+                                    <span class="tithi">त्रयोदशी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">12</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-7-12-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    २८ असार २०८३, आइतवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 12, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार कृष्ण त्रयोदशी<br/>
+                                    पञ्चाङ्ग: वृद्धि गर रोहिणी                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-3-28"
+                                           onClick="viewevents('2083-3-28')">
+                                            प्रदोष व्रत                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-28"
+                                       onClick="viewevents('2083-3-28')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-7-12-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-7-12-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-7-12-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-7-12','2083-3-28')"
+                                            id="2026-7-12-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-7-13')"
+                    id="2026-7-13"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-29-usn"
+                              style="display: none"></span>
+                <span class="event">भानु जयन्ती</span>
+                <span class="nep">२९</span>
+                                    <span class="tithi">चतुर्दशी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">13</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-7-13-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    २९ असार २०८३, सोमवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 13, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार कृष्ण चतुर्दशी<br/>
+                                    पञ्चाङ्ग: ध्रुव विष्टि/भद्रा मृगशिरा                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-3-29"
+                                           onClick="viewevents('2083-3-29')">
+                                            भानु जयन्ती                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-29"
+                                       onClick="viewevents('2083-3-29')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-7-13-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-7-13-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-7-13-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-7-13','2083-3-29')"
+                                            id="2026-7-13-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-7-14')"
+                    id="2026-7-14"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-30-usn"
+                              style="display: none"></span>
+                <span class="event">--</span>
+                <span class="nep">३०</span>
+                                    <span class="tithi">औंसी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">14</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-7-14-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    ३० असार २०८३, मंगलवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 14, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार कृष्ण औंसी<br/>
+                                    पञ्चाङ्ग: व्याघात चतुष्पद पुनर्वसु                                </div>
+
+                                <br>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-30"
+                                       onClick="viewevents('2083-3-30')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-7-14-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-7-14-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-7-14-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-7-14','2083-3-30')"
+                                            id="2026-7-14-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-7-15')"
+                    id="2026-7-15"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-31-usn"
+                              style="display: none"></span>
+                <span class="event">विश्व युवा दक्षता दिवस</span>
+                <span class="nep">३१</span>
+                                    <span class="tithi">प्रतिपदा</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">15</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-7-15-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    ३१ असार २०८३, बुधवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 15, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार शुक्ल प्रतिपदा<br/>
+                                    पञ्चाङ्ग: हर्षण बव पुष्य                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-3-31"
+                                           onClick="viewevents('2083-3-31')">
+                                            विश्व युवा दक्षता दिवस                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-31"
+                                       onClick="viewevents('2083-3-31')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-7-15-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-7-15-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-7-15-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-7-15','2083-3-31')"
+                                            id="2026-7-15-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('2026-7-16')"
+                    id="2026-7-16"
+                    class="
+                                                              
+                                ">
+
+                        <span id="2083-3-32-usn"
+                              style="display: none"></span>
+                <span class="event">--</span>
+                <span class="nep">३२</span>
+                                    <span class="tithi">द्वितीया</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">16</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="2026-7-16-iconNotes"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapper" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetails">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    ३२ असार २०८३, बिहिवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 16, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार शुक्ल द्वितीया<br/>
+                                    पञ्चाङ्ग: सिद्धि कौलव अश्लेषा                                </div>
+
+                                <br>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-3-32"
+                                       onClick="viewevents('2083-3-32')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                                                    <div class="notes" style="background: #fff2df" id="2026-7-16-calenderNotesWrapper">
+                                <h4 style="text-align: left;padding-left: 10px;font-size: 14px;font-weight: 900;padding-top: 10px">
+                                    मेरो नोट </h4>
+                                <span style="display: none"
+                                      id="2026-7-16-nepDay"></span>
+                                <div style="font-size: 15px;text-align: left;padding-left: 10px"
+                                     id="2026-7-16-icon"
+                                >
+                                    Notes Loading..
+                                </div>
+                                <textarea style="display: none;width: 100%" class="form-control" rows="5"
+                                          id="notesArea"></textarea>
+
+                                <h5 class="viewNotes" id="edit"><a
+                                            onClick="editNotes('2026-7-16','2083-3-32')"
+                                            id="2026-7-16-editPopOver"
+                                            style="cursor: pointer">ADD NOTE ></a></h5>
+                            </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('0')"
+                    id="0"
+                    class="disable
+                                                              
+                                ">
+
+                        <span id="2083-3-1-usn"
+                              style="display: none"></span>
+                <span class="event">साउने सङ्क्रान्ति/थारु गुरिया पर्व/लुतो फाल्ने दिन/दक्षिणायन आरम्भ</span>
+                <span class="nep">१</span>
+                                    <span class="tithi">तृतिया</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">17</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="0"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapperDisable" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetailsDisabled">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    १ साउन २०८३, शुक्रवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 17, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार शुक्ल तृतिया<br/>
+                                    पञ्चाङ्ग: व्यतिपात गर मघा                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-4-1"
+                                           onClick="viewevents('2083-4-1')">
+                                            साउने सङ्क्रान्ति/थारु गुरिया पर्व/लुतो फाल्ने दिन/दक्षिणायन आरम्भ                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-4-1"
+                                       onClick="viewevents('2083-4-1')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('0')"
+                    id="0"
+                    class="disable
+                                                              
+                                ">
+
+                        <span id="2083-3-2-usn"
+                              style="display: none"></span>
+                <span class="event">--</span>
+                <span class="nep">२</span>
+                                    <span class="tithi">पञ्चमी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">18</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="0"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapperDisable" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetailsDisabled">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    २ साउन २०८३, शनिवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 18, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार शुक्ल पञ्चमी<br/>
+                                    पञ्चाङ्ग: वरियान बव पूर्व                                </div>
+
+                                <br>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-4-2"
+                                       onClick="viewevents('2083-4-2')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('0')"
+                    id="0"
+                    class="disable
+                                                              
+                                ">
+
+                        <span id="2083-3-3-usn"
+                              style="display: none"></span>
+                <span class="event">--</span>
+                <span class="nep">३</span>
+                                    <span class="tithi">षष्ठी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">19</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="0"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapperDisable" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetailsDisabled">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    ३ साउन २०८३, आइतवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 19, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार शुक्ल षष्ठी<br/>
+                                    पञ्चाङ्ग: परिधि कौलव उत्तर                                </div>
+
+                                <br>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-4-3"
+                                       onClick="viewevents('2083-4-3')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('0')"
+                    id="0"
+                    class="disable
+                                                              
+                                ">
+
+                        <span id="2083-3-4-usn"
+                              style="display: none"></span>
+                <span class="event">--</span>
+                <span class="nep">४</span>
+                                    <span class="tithi">सप्तमी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">20</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="0"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapperDisable" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetailsDisabled">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    ४ साउन २०८३, सोमवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 20, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार शुक्ल सप्तमी<br/>
+                                    पञ्चाङ्ग: शिव गर हस्ता                                </div>
+
+                                <br>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-4-4"
+                                       onClick="viewevents('2083-4-4')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('0')"
+                    id="0"
+                    class="disable
+                                                              
+                                ">
+
+                        <span id="2083-3-5-usn"
+                              style="display: none"></span>
+                <span class="event">सूर्य पूजा</span>
+                <span class="nep">५</span>
+                                    <span class="tithi">अष्टमी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">21</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="0"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapperDisable" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetailsDisabled">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    ५ साउन २०८३, मंगलवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 21, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार शुक्ल अष्टमी<br/>
+                                    पञ्चाङ्ग: सिद्ध विष्टि/भद्रा चित्रा                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-4-5"
+                                           onClick="viewevents('2083-4-5')">
+                                            सूर्य पूजा                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-4-5"
+                                       onClick="viewevents('2083-4-5')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('0')"
+                    id="0"
+                    class="disable
+                                                              
+                                ">
+
+                        <span id="2083-3-6-usn"
+                              style="display: none"></span>
+                <span class="event">बुधाष्टमी व्रत/गोरखकाली पूजा</span>
+                <span class="nep">६</span>
+                                    <span class="tithi">अष्टमी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">22</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="0"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapperDisable" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetailsDisabled">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    ६ साउन २०८३, बुधवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 22, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार शुक्ल अष्टमी<br/>
+                                    पञ्चाङ्ग: साध्य बव स्वाति                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-4-6"
+                                           onClick="viewevents('2083-4-6')">
+                                            बुधाष्टमी व्रत/गोरखकाली पूजा                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-4-6"
+                                       onClick="viewevents('2083-4-6')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('0')"
+                    id="0"
+                    class="disable
+                                                              
+                                ">
+
+                        <span id="2083-3-7-usn"
+                              style="display: none"></span>
+                <span class="event">--</span>
+                <span class="nep">७</span>
+                                    <span class="tithi">नवमी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">23</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="0"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapperDisable" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetailsDisabled">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    ७ साउन २०८३, बिहिवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 23, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार शुक्ल नवमी<br/>
+                                    पञ्चाङ्ग: शुभ कौलव विशाखा                                </div>
+
+                                <br>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-4-7"
+                                       onClick="viewevents('2083-4-7')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('0')"
+                    id="0"
+                    class="disable
+                                                              
+                                ">
+
+                        <span id="2083-3-8-usn"
+                              style="display: none"></span>
+                <span class="event">--</span>
+                <span class="nep">८</span>
+                                    <span class="tithi">दशमी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">24</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="0"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapperDisable" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetailsDisabled">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    ८ साउन २०८३, शुक्रवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 24, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार शुक्ल दशमी<br/>
+                                    पञ्चाङ्ग: शुक्ल गर अनुराधा                                </div>
+
+                                <br>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-4-8"
+                                       onClick="viewevents('2083-4-8')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+            
+            <!-- ok until this -->
+
+            <li     onclick="openPopUp('0')"
+                    id="0"
+                    class="disable
+                                                              
+                                ">
+
+                        <span id="2083-3-9-usn"
+                              style="display: none"></span>
+                <span class="event">हरिशयनी एकादशी व्रत (तुलसी रोप्ने)/चतुर्मास व्रत आरम्भ</span>
+                <span class="nep">९</span>
+                                    <span class="tithi">एकादशी</span><br/>
+                    <span class="tithi"></span>
+                                <span class="eng">25</span>
+                <span class="eng"><img src="../images/icon/calender_notes.svg" class="notesIcon clanederIcon"
+                                       style="display: none;"
+                                       id="0"
+                    >
+                </span>
+
+
+
+                <div class="popup-box daydetailsPopOverWrapperDisable" id="daypop" style="opacity: 1;">
+                    <span class="arrow"></span>
+                    <span class="popup-close closeButton"><img src="../images/icon/close_icon.png"></span>
+                    <div class="daydetailsPopOver">
+                        <div class="  dayDetailsDisabled">
+                            <div class="col1" style="font-weight: 900;padding-top: 10px">
+                                
+                                <span style="font-weight: 900">
+                                    ९ साउन २०८३, शनिवार
+                                </span>
+
+                            </div>
+                            <div class="col2"
+                                 style="border: none;text-align: left;padding-left: 15px">July 25, 2026<br/>
+
+                            </div>
+                            <div class="col3" style="border: none">
+                                <div class="panchangaWrapper">
+                                    असार शुक्ल एकादशी<br/>
+                                    पञ्चाङ्ग: ब्रह्म विष्टि/भद्रा ज्येष्ठा                                </div>
+
+                                <br>
+                                                                    <div class="eventPopupWrapper">
+
+                                        <a style="color:#333230;text-decoration: underline;cursor: pointer"
+                                           href="/date/2083-4-9"
+                                           onClick="viewevents('2083-4-9')">
+                                            हरिशयनी एकादशी व्रत (तुलसी रोप्ने)/चतुर्मास व्रत आरम्भ                                        </a>
+
+                                    </div>
+                                                                <h3 class="viewDetails">
+                                    <a style="text-decoration:none;  color: #049ffc;"
+                                       href="/date/2083-4-9"
+                                       onClick="viewevents('2083-4-9')">
+                                        VIEW DETAILS +
+                                    </a>
+                                </h3>
+                                <br>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+
+                </ul>
+</div>
+
+
+<div style="padding-top:7px;padding-right:3px;display: grid;gap:1em">
+    <div >
+        <div class="homePageBoxContent" style="margin-bottom: 5px">
+    <a href='/apps'>
+        <div class="homeBox orange"><img src="../images/icons/ic_app.png" width="30" style="padding-bottom: 10px;" class="homeBoxImage"/><p class="title">हाम्रो एप्स</p>
+            <p class="subtitle">हाम्रो पात्रोको एप्सहरू</p>
+
+            <p class="content">यसमा सबै छ</p></div>
+    </a>
+    <a href='/news'>
+        <div class="homeBox maroon"><img src="../images/icons/ic_news.png" width="30" style="padding-bottom: 10px;" class="homeBoxImage"/>
+            <p class="title">ताजा समाचार</p>
+            <p class="subtitle">समसामयिक सामग्री</p>
+            <p class="content">सबै समाचारहरू अब एकै ठाउँमा</p>
+        </div>
+    </a>
+    <a href='/rashifal'>
+        <div class="homeBox blue"><img src="../images/icons/ic_horoscope.png" width="30" style="padding-bottom: 10px;" class="homeBoxImage"/>
+            <p class="title">राशीफल</p>
+            <p class="subtitle">तपाईँको राशीफल</p>
+            <p class="content">दैनिक, मासिक तथा वार्षिक </p>
+        </div>
+    </a>
+    <a href='/posts'>
+        <div class="homeBox green"><img src="../images/icons/ic_blog.png" width="30" style="padding-bottom: 10px;" class="homeBoxImage"/>
+            <p class="title">साहित्य / ब्लग</p>
+            <p class="subtitle">समसामयिक सामग्री</p>
+            <p class="content">तथा अन्य सूचनाहरू</p>
+        </div>
+    </a>
+</div>
+<div class="homePageBoxContent">
+    <a href='/gold'>
+        <div class="homeBox yellow"><img src="../images/icons/ic_gold.png" width="30" style="padding-bottom: 10px;" class="homeBoxImage"/>
+            <p class="title">सुन चाँदी</p>
+            <p class="subtitle">सुन तथा चाँदीको मुल्य</p>
+            <p class="content">ताजा जानकारी</p></div>
+    </a>
+    <a href='/forex'>
+        <div class="homeBox skyblue"><img src="../images/icons/ic_forex.png" width="30" style="padding-bottom: 10px;" class="homeBoxImage"/>
+            <p class="title">विदेशी विनिमय दर</p>
+            <p class="subtitle">विदेशी विनिमयदरको</p>
+            <p class="content">ताजा जानकारी</p></div>
+    </a>
+    <a href='/radio'>
+        <div class="homeBox darkRed">
+            <img src="../images/icons/ic_radio.png" width="30" style="padding-bottom: 10px;" class="homeBoxImage"/>
+            <p class="title">हाम्रो रेडियो</p>
+            <p class="subtitle">६००+ स्टेशन सुन्नुहोस्</p>
+            <p class="content">नेपाली रेडियो / एफएम</p>
+        </div>
+    </a>
+    <a href="/date-converter">
+        <div class="homeBox offGreen">
+            <img src="../images/icon/date-conveter-white.svg" width="30" style="padding-bottom: 10px;" class="homeBoxImage"/>
+            <p class="title">मिति रूपान्तरण</p>
+            <p class="subtitle">B.S to A.D रूपान्तरण</p>
+            <p class="content">A.D to B.S रूपान्तरण</p>
+        </div>
+    </a>
+</div>    </div>
+    <div style="height: 100%">
+        <div>
+    <a href="https://creative.hamropatro.com/dest/hamro-patro-web-square" target="_blank">
+        <img src="https://creative.hamropatro.com/img/hamro-patro-web-square.gif" loading="lazy" style="width: 100%;display: block;padding: 10px 0px">
+    </a>
+</div>
+    </div>
+</div>

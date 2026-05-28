@@ -13,7 +13,7 @@ export class SearchPage {
   }
 
   async navigate() {
-    await this.page.goto('/', { waitUntil: 'domcontentloaded' });
+    await this.page.goto('/', { waitUntil: 'load' });
   }
 
   async search(query) {
@@ -50,3 +50,4 @@ export class SearchPage {
     return await this.page.locator('body').isVisible();
   }
 }
+

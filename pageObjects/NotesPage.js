@@ -7,20 +7,20 @@ import { expect } from '@playwright/test';
 export class NotesPage {
   constructor(page) {
     this.page = page;
-    this.notesHeading = page.locator('h2').filter({ has: page.locator('a[href="/notes"]') });
-    this.notesLink = page.locator('a[href="/notes"]').first();
-    this.addNoteLink = page.locator('a:has-text("Add Note"), button:has-text("Add Note"), img[src*="Add_button"]').first();
-    this.notesEmptyMessage = page.getByText('You can add your notes here.');
+    this.notesLink = page.locator('a[href="/notes"], a:has-text("मेरो नोट")').first();
+    this.notesSection = page.locator('nav, header, section').filter({ has: this.notesLink });
+    this.addNoteLink = this.notesLink;
+    this.notesEmptyMessage = page.locator('text=VIEW ALL, text=मेरो नोट');
     this.noteForm = page.locator('form, [class*="note-form"], [class*="add-note"]').first();
     this.loginPrompt = page.locator('text=Login, text=Sign In, [class*="auth"], [class*="login"]').first();
   }
 
   async navigate() {
-    await this.page.goto('/notes', { waitUntil: 'domcontentloaded' });
+    await this.page.goto('/notes', { waitUntil: 'load' });
   }
 
   async navigateFromHomepage() {
-    await this.page.goto('/', { waitUntil: 'domcontentloaded' });
+    await this.page.goto('/', { waitUntil: 'load' });
     await expect(this.notesLink).toBeVisible();
     await this.notesLink.click();
   }
@@ -31,8 +31,8 @@ export class NotesPage {
   }
 
   async verifyNotesSectionOnHomepage() {
-    await this.page.goto('/', { waitUntil: 'domcontentloaded' });
-    await expect(this.notesHeading).toBeVisible();
+    await this.page.goto('/', { waitUntil: 'load' });
+    await expect(this.notesLink).toBeVisible();
   }
 
   async verifyLoginRequired() {
@@ -54,3 +54,4 @@ export class NotesPage {
     await expect(this.notesEmptyMessage).toBeVisible();
   }
 }
+

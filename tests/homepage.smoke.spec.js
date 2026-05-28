@@ -6,7 +6,7 @@ test.describe('Homepage Smoke Tests @smoke @ui', () => {
 
   test.beforeEach(async ({ page }) => {
     home = new HomePage(page);
-    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.goto('/', { waitUntil: 'load' });
   });
 
   test('should load homepage and display logo', async () => {
@@ -21,3 +21,4 @@ test.describe('Homepage Smoke Tests @smoke @ui', () => {
     await home.verifyCalendarHeading();
   });
 });
+

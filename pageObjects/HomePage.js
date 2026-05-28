@@ -17,8 +17,8 @@ export class HomePage {
     this.forexLink = page.locator('a[href="/forex"]');
     this.converterLink = page.locator('a[href="/date-converter"]');
     this.footerText = page.getByText('© Hamro Patro');
-    this.privacyLink = page.locator('a[href="privacy"]');
-    this.termsLink = page.locator('a[href="terms"]');
+    this.privacyLink = page.locator('a[href="/privacy"]');
+    this.termsLink = page.locator('a[href="/terms"]');
     this.accountIcon = page.locator('img[src*="account_circle"], img#user_image, img#user_imagae').first();
     this.facebookLink = page.locator('a[href*="facebook.com/hamropatro"]');
     this.instagramLink = page.locator('a[href*="instagram.com/hamropatro"]');
@@ -28,7 +28,7 @@ export class HomePage {
   }
 
   async navigate() {
-    await this.page.goto('/', { waitUntil: 'domcontentloaded' });
+    await this.page.goto('/', { waitUntil: 'load' });
   }
 
   async verifyTitle() {
@@ -68,3 +68,4 @@ export class HomePage {
     await expect(this.searchInput).toBeVisible();
   }
 }
+

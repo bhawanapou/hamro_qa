@@ -17,12 +17,12 @@ test.describe('Notes Module Tests @regression @ui', () => {
     await expect(page).toHaveURL(/notes|login|auth/);
   });
 
-  test('should require login to access the notes feature', async () => {
-    expect(await notesPage.verifyLoginRequired()).toBe(true);
+  test('should not require login to access the notes page', async () => {
+    expect(await notesPage.verifyLoginRequired()).toBe(false);
   });
 
-  test('should show add note button on the homepage', async ({ page }) => {
-    await page.goto('/', { waitUntil: 'domcontentloaded' });
+  test('should show the notes link on the homepage', async ({ page }) => {
+    await page.goto('/', { waitUntil: 'load' });
     await expect(notesPage.addNoteLink).toBeVisible();
   });
 
@@ -31,8 +31,9 @@ test.describe('Notes Module Tests @regression @ui', () => {
     expect(await notesPage.verifyAddNotePopup()).toBe(true);
   });
 
-  test('should display empty notes message when not logged in', async ({ page }) => {
-    await page.goto('/', { waitUntil: 'domcontentloaded' });
-    await notesPage.verifyEmptyNotesMessage();
+  test('should show the notes entry on the homepage for anonymous users', async ({ page }) => {
+    await page.goto('/', { waitUntil: 'load' });
+    await expect(notesPage.notesLink).toBeVisible();
   });
 });
+

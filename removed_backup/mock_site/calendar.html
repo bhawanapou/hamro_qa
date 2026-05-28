@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Calendar</title>
+</head>
+<body>
+  <header>
+    <h1>Nepali Calendar</h1>
+  </header>
+  <nav id="month-nav">
+    <a href="/calendar/2083/2">Prev</a>
+    <a href="/calendar/2083/4">Next</a>
+    <a href="#">आज</a>
+  </nav>
+  <section id="calendar-controls">
+    <label for="year">Year</label>
+    <select id="year" name="year">
+      <option value="2082">2082</option>
+      <option value="2083" selected>2083</option>
+      <option value="2084">2084</option>
+    </select>
+
+    <label for="month">Month</label>
+    <select id="month" name="month">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3" selected>3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+    </select>
+  </section>
+
+  <section id="calendar-grid">
+    <ul>
+      <li>Sunday</li>
+      <li>Monday</li>
+      <li>Tuesday</li>
+      <li>Wednesday</li>
+      <li>Thursday</li>
+      <li>Friday</li>
+      <li>Saturday</li>
+    </ul>
+    <p class="nepali-date">वैशाख १, २०८३</p>
+    <p class="english-date">May 14, 2026</p>
+  </section>
+</body>
+</html>

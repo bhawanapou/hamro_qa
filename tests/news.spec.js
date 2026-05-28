@@ -36,7 +36,7 @@ test.describe('News Module Tests @regression @ui', () => {
     const articleCount = await newsPage.getArticleCount();
     if (articleCount > 0) {
       await newsPage.clickFirstArticle();
-      await page.waitForLoadState('domcontentloaded');
+      await page.waitForLoadState('load');
       expect(page.url()).toBeTruthy();
     }
   });
@@ -62,8 +62,10 @@ test.describe('News Module Tests @regression @ui', () => {
   });
 
   test('should display news article images on homepage bulletin', async ({ page }) => {
-    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.goto('/', { waitUntil: 'load' });
     const imageCount = await newsPage.newsCardImages.count();
     expect(imageCount).toBeGreaterThan(0);
   });
 });
+
+

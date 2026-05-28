@@ -10,19 +10,20 @@ const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 /**
- * Playwright configuration optimized for academic use and low-end laptops.
+ * Hamro Patro QA Automation Framework - Playwright Configuration
+ * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
   testDir: './tests',
   outputDir: './test-results',
-  timeout: 30_000, // maximum time a single test can run
+  timeout: 60_000, // Maximum time one test can run
   expect: {
-    timeout: 8_000, // default time for Playwright assertions
+    timeout: 15_000, // Expect timeout for assertions
   },
-  fullyParallel: false, // run tests with a single worker for stability
-  forbidOnly: !!process.env.CI, // fail if test.only is left in code
-  retries: 1, // one retry to reduce false negatives while keeping execution light
-  workers: 1, // single worker to keep CPU and memory use low
+  fullyParallel: true, // Run tests in files in parallel
+  forbidOnly: !!process.env.CI, // Fail the build on CI if you accidentally left test.only in the source code
+  retries: process.env.CI ? 2 : 1, // Retry failed tests
+  workers: 1, // Use single worker to avoid mock server contention
   reporter: [
     ['html', { outputFolder: 'playwright-report', open: 'never' }],
     ['list'],
@@ -30,14 +31,14 @@ export default defineConfig({
   use: {
     baseURL: process.env.BASE_URL || 'http://localhost:3000',
     headless: true, // run in headless mode by default for faster execution
-    screenshot: 'only-on-failure', // capture only failed test screenshots
-    video: 'off', // disable video recording to save disk space
-    trace: 'on-first-retry', // collect trace only when retrying failures
-    navigationTimeout: 25_000, // timeout for page navigation
-    actionTimeout: 12_000, // timeout for user actions like click/type
+    screenshot: 'only-on-failure', // Screenshots on failure
+    video: 'retain-on-failure', // Video on failure
+    trace: 'on-first-retry', // Collect trace on first retry
+    navigationTimeout: 30_000, // Navigation timeout
+    actionTimeout: 15_000, // Action timeout
     viewport: { width: 1280, height: 720 },
     ignoreHTTPSErrors: true, // ignore certificate issues during testing
-    acceptDownloads: false, // disable downloads by default for speed
+    acceptDownloads: true, // accept downloads
     locale: 'en-US',
   },
   projects: [

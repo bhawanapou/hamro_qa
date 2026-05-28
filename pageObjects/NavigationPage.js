@@ -27,8 +27,8 @@ export class NavigationPage {
 
     // Footer navigation links
     this.footerLinks = {
-      privacy: { locator: page.locator('a[href="privacy"]'), expectedPath: '/privacy' },
-      terms: { locator: page.locator('a[href="terms"]'), expectedPath: '/terms' },
+      privacy: { locator: page.locator('a[href="/privacy"]'), expectedPath: '/privacy' },
+      terms: { locator: page.locator('a[href="/terms"]'), expectedPath: '/terms' },
     };
 
     // Feature links in footer
@@ -54,7 +54,7 @@ export class NavigationPage {
    * Navigate to homepage
    */
   async navigate() {
-    await this.page.goto('/', { waitUntil: 'domcontentloaded' });
+    await this.page.goto('/', { waitUntil: 'load' });
     await this.page.waitForLoadState('load');
   }
 
@@ -67,7 +67,7 @@ export class NavigationPage {
 
     await expect(link.locator.first()).toBeVisible({ timeout: 8_000 });
     await link.locator.first().click();
-    await this.page.waitForLoadState('domcontentloaded');
+    await this.page.waitForLoadState('load');
 
     if (link.expectedPath) {
       await expect(this.page).toHaveURL(new RegExp(link.expectedPath));
@@ -98,7 +98,7 @@ export class NavigationPage {
    * Navigate to an internal link and verify it doesn't return 404
    */
   async verifyLinkNotBroken(url) {
-    const response = await this.page.goto(url, { waitUntil: 'domcontentloaded' });
+    const response = await this.page.goto(url, { waitUntil: 'load' });
     return response && response.status() < 400;
   }
 
@@ -120,3 +120,5 @@ export class NavigationPage {
     }
   }
 }
+
+

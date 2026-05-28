@@ -9,7 +9,7 @@ export class TestHelper {
    * Wait for network idle state
    */
   static async waitForPageReady(page) {
-    await page.waitForLoadState('domcontentloaded');
+    await page.waitForLoadState('load');
     await page.waitForLoadState('load');
   }
 
@@ -60,7 +60,7 @@ export class TestHelper {
    */
   static async checkUrlStatus(page, url) {
     try {
-      const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 10000 });
+      const response = await page.goto(url, { waitUntil: 'load', timeout: 10000 });
       return response ? response.status() : 0;
     } catch {
       return 0;
@@ -83,7 +83,7 @@ export class TestHelper {
    */
   static async measureLoadTime(page, url) {
     const startTime = Date.now();
-    await page.goto(url, { waitUntil: 'domcontentloaded' });
+    await page.goto(url, { waitUntil: 'load' });
     return Date.now() - startTime;
   }
 
@@ -117,3 +117,5 @@ export class TestHelper {
     });
   }
 }
+
+

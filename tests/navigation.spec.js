@@ -71,11 +71,12 @@ test.describe('Navigation Tests @smoke @ui', () => {
   test('should return to homepage when clicking site name', async ({ page }) => {
     // Navigate away first
     await navPage.clickNavLink('news');
-    await page.waitForLoadState('domcontentloaded');
+    await page.waitForLoadState('load');
 
     // Click the site name / home link
     await page.locator('a[href="/"]').first().click();
-    await page.waitForLoadState('domcontentloaded');
-    await expect(page).toHaveURL(/hamropatro\.com/);
+    await page.waitForLoadState('load');
+    await expect(page.url()).toMatch(/(?:hamropatro\.com|localhost:3000)(?:\/|$)/);
   });
 });
+

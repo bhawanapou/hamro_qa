@@ -8,7 +8,7 @@ test.describe('Responsive Design Tests @regression @ui', () => {
       viewport: testData.viewports.mobile,
     });
     const page = await context.newPage();
-    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.goto('/', { waitUntil: 'load' });
 
     // Page should load without errors
     await expect(page).toHaveTitle(/Nepali Calendar|Hamro Patro/i);
@@ -28,7 +28,7 @@ test.describe('Responsive Design Tests @regression @ui', () => {
       viewport: testData.viewports.tablet,
     });
     const page = await context.newPage();
-    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.goto('/', { waitUntil: 'load' });
 
     await expect(page).toHaveTitle(/Nepali Calendar|Hamro Patro/i);
 
@@ -47,7 +47,7 @@ test.describe('Responsive Design Tests @regression @ui', () => {
       viewport: testData.viewports.desktop,
     });
     const page = await context.newPage();
-    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.goto('/', { waitUntil: 'load' });
 
     await expect(page).toHaveTitle(/Nepali Calendar|Hamro Patro/i);
 
@@ -66,7 +66,7 @@ test.describe('Responsive Design Tests @regression @ui', () => {
       viewport: testData.viewports.largeDesktop,
     });
     const page = await context.newPage();
-    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.goto('/', { waitUntil: 'load' });
 
     await expect(page).toHaveTitle(/Nepali Calendar|Hamro Patro/i);
 
@@ -81,7 +81,7 @@ test.describe('Responsive Design Tests @regression @ui', () => {
       viewport: testData.viewports.desktop,
     });
     const page = await context.newPage();
-    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.goto('/', { waitUntil: 'load' });
 
     // Resize to mobile
     await page.setViewportSize(testData.viewports.mobile);
@@ -109,7 +109,7 @@ test.describe('Responsive Design Tests @regression @ui', () => {
     const pixel5 = devices['Pixel 5'];
     const context = await browser.newContext({ ...pixel5 });
     const page = await context.newPage();
-    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.goto('/', { waitUntil: 'load' });
 
     await expect(page).toHaveTitle(/Nepali Calendar|Hamro Patro/i);
 
@@ -121,10 +121,11 @@ test.describe('Responsive Design Tests @regression @ui', () => {
     const iphone12 = devices['iPhone 12'];
     const context = await browser.newContext({ ...iphone12 });
     const page = await context.newPage();
-    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.goto('/', { waitUntil: 'load' });
 
     await expect(page).toHaveTitle(/Nepali Calendar|Hamro Patro/i);
 
     await context.close();
   });
 });
+

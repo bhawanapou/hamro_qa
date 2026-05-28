@@ -25,7 +25,7 @@ test.describe('Calendar Tests @regression @ui', () => {
   test('should navigate to the next month', async ({ page }) => {
     const currentUrl = page.url();
     await calendarPage.goToNextMonth();
-    await page.waitForLoadState('domcontentloaded');
+    await page.waitForLoadState('load');
     expect(page.url()).not.toBe(currentUrl);
   });
 
@@ -34,7 +34,7 @@ test.describe('Calendar Tests @regression @ui', () => {
     await calendarPage.navigateToMonth(2083, 3);
     const currentUrl = page.url();
     await calendarPage.goToPreviousMonth();
-    await page.waitForLoadState('domcontentloaded');
+    await page.waitForLoadState('load');
     expect(page.url()).not.toBe(currentUrl);
   });
 
@@ -73,3 +73,4 @@ test.describe('Calendar Tests @regression @ui', () => {
     await expect(page).toHaveURL(/calendar\/2083\/6/);
   });
 });
+

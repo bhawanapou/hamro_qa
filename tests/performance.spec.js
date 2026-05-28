@@ -5,7 +5,7 @@ test.describe('Performance Tests @regression', () => {
 
   test('should load homepage within acceptable time', async ({ page }) => {
     const startTime = Date.now();
-    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.goto('/', { waitUntil: 'load' });
     const loadTime = Date.now() - startTime;
 
     expect(loadTime).toBeLessThan(testData.performance.maxPageLoadTime);
@@ -13,7 +13,7 @@ test.describe('Performance Tests @regression', () => {
 
   test('should load news page within acceptable time', async ({ page }) => {
     const startTime = Date.now();
-    await page.goto('/news', { waitUntil: 'domcontentloaded' });
+    await page.goto('/news', { waitUntil: 'load' });
     const loadTime = Date.now() - startTime;
 
     expect(loadTime).toBeLessThan(testData.performance.maxPageLoadTime);
@@ -21,7 +21,7 @@ test.describe('Performance Tests @regression', () => {
 
   test('should load calendar page within acceptable time', async ({ page }) => {
     const startTime = Date.now();
-    await page.goto('/calendar/2083/2', { waitUntil: 'domcontentloaded' });
+    await page.goto('/calendar/2083/2', { waitUntil: 'load' });
     const loadTime = Date.now() - startTime;
 
     expect(loadTime).toBeLessThan(testData.performance.maxPageLoadTime);
@@ -29,7 +29,7 @@ test.describe('Performance Tests @regression', () => {
 
   test('should load gold page within acceptable time', async ({ page }) => {
     const startTime = Date.now();
-    await page.goto('/gold', { waitUntil: 'domcontentloaded' });
+    await page.goto('/gold', { waitUntil: 'load' });
     const loadTime = Date.now() - startTime;
 
     expect(loadTime).toBeLessThan(testData.performance.maxPageLoadTime);
@@ -37,7 +37,7 @@ test.describe('Performance Tests @regression', () => {
 
   test('should load forex page within acceptable time', async ({ page }) => {
     const startTime = Date.now();
-    await page.goto('/forex', { waitUntil: 'domcontentloaded' });
+    await page.goto('/forex', { waitUntil: 'load' });
     const loadTime = Date.now() - startTime;
 
     expect(loadTime).toBeLessThan(testData.performance.maxPageLoadTime);
@@ -71,10 +71,10 @@ test.describe('Performance Tests @regression', () => {
   });
 
   test('should have a reasonable response time for navigation', async ({ page }) => {
-    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.goto('/', { waitUntil: 'load' });
 
     const startTime = Date.now();
-    await page.goto('/news', { waitUntil: 'domcontentloaded' });
+    await page.goto('/news', { waitUntil: 'load' });
     const navTime = Date.now() - startTime;
 
     expect(navTime).toBeLessThan(testData.performance.maxPageLoadTime);
@@ -96,3 +96,4 @@ test.describe('Performance Tests @regression', () => {
     expect(failedResources.length).toBeLessThan(Math.max(resources.length * 0.2, 1));
   });
 });
+

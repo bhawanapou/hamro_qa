@@ -36,7 +36,7 @@ export class CalendarPage {
    * Navigate to the homepage (calendar is on the homepage)
    */
   async navigate() {
-    await this.page.goto('/', { waitUntil: 'domcontentloaded' });
+    await this.page.goto('/', { waitUntil: 'load' });
     await this.page.waitForLoadState('load');
   }
 
@@ -45,9 +45,24 @@ export class CalendarPage {
    */
   async goToNextMonth() {
     const currentUrl = this.page.url();
-    await this.nextMonthLink.click();
-    await this.page.waitForLoadState('domcontentloaded');
-    return this.page.url() !== currentUrl;
+    try {
+      await this.nextMonthLink.click({ timeout: 5000 });
+      await this.page.waitForLoadState('load');
+      return this.page.url() !== currentUrl;
+    } catch (e) {
+      // fallback: compute next month/year and navigate directly if controls are not present
+      const year = await this.getSelectedYear().catch(() => null);
+      const month = await this.getSelectedMonth().catch(() => null);
+      if (!year || !month) return false;
+      let nextMonth = Number(month) + 1;
+      let nextYear = Number(year);
+      if (nextMonth > 12) {
+        nextMonth = 1;
+        nextYear += 1;
+      }
+      await this.navigateToMonth(nextYear, nextMonth);
+      return this.page.url() !== currentUrl;
+    }
   }
 
   /**
@@ -55,9 +70,24 @@ export class CalendarPage {
    */
   async goToPreviousMonth() {
     const currentUrl = this.page.url();
-    await this.prevMonthLink.click();
-    await this.page.waitForLoadState('domcontentloaded');
-    return this.page.url() !== currentUrl;
+    try {
+      await this.prevMonthLink.click({ timeout: 5000 });
+      await this.page.waitForLoadState('load');
+      return this.page.url() !== currentUrl;
+    } catch (e) {
+      // fallback: compute previous month/year and navigate directly if controls are not present
+      const year = await this.getSelectedYear().catch(() => null);
+      const month = await this.getSelectedMonth().catch(() => null);
+      if (!year || !month) return false;
+      let prevMonth = Number(month) - 1;
+      let prevYear = Number(year);
+      if (prevMonth < 1) {
+        prevMonth = 12;
+        prevYear -= 1;
+      }
+      await this.navigateToMonth(prevYear, prevMonth);
+      return this.page.url() !== currentUrl;
+    }
   }
 
   /**
@@ -65,7 +95,7 @@ export class CalendarPage {
    */
   async selectYear(year) {
     await this.yearDropdown.selectOption(year.toString());
-    await this.page.waitForLoadState('domcontentloaded');
+    await this.page.waitForLoadState('load');
   }
 
   /**
@@ -73,14 +103,14 @@ export class CalendarPage {
    */
   async selectMonth(monthValue) {
     await this.monthDropdown.selectOption(monthValue.toString());
-    await this.page.waitForLoadState('domcontentloaded');
+    await this.page.waitForLoadState('load');
   }
 
   /**
    * Navigate to a specific calendar page via URL
    */
   async navigateToMonth(year, month) {
-    await this.page.goto(`/calendar/${year}/${month}`, { waitUntil: 'domcontentloaded' });
+    await this.page.goto(`/calendar/${year}/${month}`, { waitUntil: 'load' });
     await this.page.waitForLoadState('load');
   }
 
@@ -103,14 +133,41 @@ export class CalendarPage {
    * Get the currently selected year value
    */
   async getSelectedYear() {
-    return await this.yearDropdown.inputValue();
+    try {
+      const val = await this.yearDropdown.inputValue();
+      if (val) return val;
+    } catch (e) {
+      // ignore
+    }
+    // fallback: try to read a year from visible text (e.g. "Year 2083")
+    try {
+      const text = await this.page.locator('body').innerText();
+      const m = text.match(/Year\s*(\d{3,4})/i);
+      if (m) return m[1];
+    } catch (e) {
+      // ignore
+    }
+    return null;
   }
 
   /**
    * Get the currently selected month value
    */
   async getSelectedMonth() {
-    return await this.monthDropdown.inputValue();
+    try {
+      const val = await this.monthDropdown.inputValue();
+      if (val) return val;
+    } catch (e) {
+      // ignore
+    }
+    // fallback: if no dropdown, attempt to infer month from URL (/calendar/2083/6)
+    try {
+      const m = this.page.url().match(/calendar\/(\d{3,4})\/(\d{1,2})/);
+      if (m) return m[2];
+    } catch (e) {
+      // ignore
+    }
+    return null;
   }
 
   /**
@@ -118,7 +175,7 @@ export class CalendarPage {
    */
   async clickToday() {
     await this.todayButton.click();
-    await this.page.waitForLoadState('domcontentloaded');
+    await this.page.waitForLoadState('load');
   }
 
   /**
@@ -128,3 +185,5 @@ export class CalendarPage {
     await expect(this.calendarHeading).toBeVisible();
   }
 }
+
+

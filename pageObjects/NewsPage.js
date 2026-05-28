@@ -34,7 +34,7 @@ export class NewsPage {
    * Navigate to the News section
    */
   async navigate() {
-    await this.page.goto('/news', { waitUntil: 'domcontentloaded' });
+    await this.page.goto('/news', { waitUntil: 'load' });
     await this.page.waitForLoadState('load');
   }
 
@@ -43,14 +43,14 @@ export class NewsPage {
    */
   async navigateFromNavbar() {
     await this.page.locator('a[href="/news"]').first().click();
-    await this.page.waitForLoadState('domcontentloaded');
+    await this.page.waitForLoadState('load');
   }
 
   /**
    * Verify news articles are loaded on the page
    */
   async verifyArticlesLoaded() {
-    await this.page.waitForLoadState('domcontentloaded');
+    await this.page.waitForLoadState('load');
     const articleCount = await this.newsArticles.count();
     expect(articleCount).toBeGreaterThan(0);
   }
@@ -61,14 +61,14 @@ export class NewsPage {
   async clickFirstArticle() {
     const firstArticle = this.articleLinks.first();
     await firstArticle.click();
-    await this.page.waitForLoadState('domcontentloaded');
+    await this.page.waitForLoadState('load');
   }
 
   /**
    * Navigate to a specific news category
    */
   async navigateToCategory(category) {
-    await this.page.goto(`/news/${category}`, { waitUntil: 'domcontentloaded' });
+    await this.page.goto(`/news/${category}`, { waitUntil: 'load' });
     await this.page.waitForLoadState('load');
   }
 
@@ -90,7 +90,7 @@ export class NewsPage {
    * Verify news section on homepage shows bulletin
    */
   async verifyNewsBulletinOnHomepage() {
-    await this.page.goto('/', { waitUntil: 'domcontentloaded' });
+    await this.page.goto('/', { waitUntil: 'load' });
     await expect(this.newsBulletinHeading).toBeVisible();
     const cardCount = await this.articleLinks.count();
     expect(cardCount).toBeGreaterThan(0);
@@ -103,3 +103,5 @@ export class NewsPage {
     return await this.articleLinks.count();
   }
 }
+
+
